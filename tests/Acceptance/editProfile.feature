@@ -1,4 +1,4 @@
-Feature: edit my profile
+Feature: Edit User Profile
 	As a registered user of the system
 	In order to modify my personal information
 	I want to be able to edit my profile
