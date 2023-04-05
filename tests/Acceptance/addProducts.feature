@@ -20,6 +20,3 @@ Feature: Add Product as Admin
 		And click on the "Save" button
 		Then I should see an error message showing that the product was not added
 		And the new product should not be displayed in the list of products on the main page.
-
-
-
