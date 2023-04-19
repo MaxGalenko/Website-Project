@@ -10,7 +10,7 @@ class App{
 //		var_dump($request);
 
 		//default controller and method
-		$controller = 'Main';
+		$controller = 'Home';
 		$method = 'index';
 		$params = [];
 
