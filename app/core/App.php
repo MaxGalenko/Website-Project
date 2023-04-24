@@ -10,7 +10,7 @@ class App{
 //		var_dump($request);
 
 		//default controller and method
-		$controller = 'Home';
+		$controller = 'Main';
 		$method = 'index';
 		$params = [];
 
@@ -67,6 +67,4 @@ class App{
 	function parseUrl($url){
 		return explode('/', trim($url, '/'));
 	}
-
-
 }

@@ -1,8 +1,12 @@
 Options -MultiViews
 
+<Files .env>
+Deny from all
+</Files>
+
 RewriteEngine On
 
-RewriteBase /Website-Project/
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
