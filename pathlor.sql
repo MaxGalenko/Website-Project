@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2023 at 09:01 PM
+-- Generation Time: Apr 25, 2023 at 10:52 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -119,21 +119,17 @@ CREATE TABLE `product` (
   `type` varchar(20) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(128) DEFAULT NULL,
-  `unit_price` double NOT NULL
+  `unit_price` double NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`) VALUES
-(1, 'test', 'laptop', 'description box', NULL, 10),
-(2, 'Test2', 'computer', 'description box', '-644759f04b15c.jpg', 0.08),
-(3, 'test32', 'dsada', 'sdaasdads', '-64475ad9eabae.png', 0.05),
-(4, 'dsffdsdf', 'dfsfsdf', 'dfssssssssssfdssd', NULL, 0.05),
-(5, 'test10', 'laptop', 'sdasdadsasddasdsad', '-64476dd100cca.jpg', 3.32),
-(6, 'Gaming pc', 'computer', 'a gaming pc', '-6447f2c47ec9f.jpg', 24),
-(7, 'gaming laptop', 'laptop', 'this is a laptop description box', '7-644803ea77d0a.png', 34);
+INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`, `quantity`) VALUES
+(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', 209.99, 10),
+(9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, 199.99, 5);
 
 -- --------------------------------------------------------
 
@@ -268,7 +264,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `profile`

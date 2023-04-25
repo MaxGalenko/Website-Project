@@ -1,4 +1,5 @@
 <?php
+
 namespace app\models;
 
 class Product extends \app\core\Model {
@@ -9,6 +10,7 @@ class Product extends \app\core\Model {
 	public $description;
 	public $image;
 	public $unit_price;
+	public $quantity;
 
 	//get all the products
 	public function getAll() {
@@ -29,7 +31,7 @@ class Product extends \app\core\Model {
 
 	//Creating products
 	public function create() {
-		$SQL = 'INSERT INTO product(title,type,description,image,unit_price) VALUE (:title, :type, :description, :image, :unit_price)';
+		$SQL = 'INSERT INTO product(title,type,description,image,unit_price,quantity) VALUE (:title, :type, :description, :image, :unit_price, :quantity)';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'title' => $this->title,
@@ -37,12 +39,13 @@ class Product extends \app\core\Model {
 			'description' => $this->description,
 			'image' => $this->image,
 			'unit_price' => $this->unit_price,
+			'quantity' => $this->quantity,
 		]);
 	}
 
 	//Update products
 	public function update() {
-		$SQL = 'UPDATE product SET title=:title, type=:type, description=:description, image=:image, unit_price=:unit_price WHERE product_id=:product_id';
+		$SQL = 'UPDATE product SET title=:title, type=:type, description=:description, image=:image, unit_price=:unit_price, quantity=:quantity WHERE product_id=:product_id';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'title' => $this->title,
@@ -50,6 +53,7 @@ class Product extends \app\core\Model {
 			'description' => $this->description,
 			'image' => $this->image,
 			'unit_price' => $this->unit_price,
+			'quantity' => $this->quantity,
 			'product_id' => $this->product_id,
 		]);
 	}

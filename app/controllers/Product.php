@@ -17,6 +17,7 @@ class Product extends \app\core\Controller {
 	        $product->type = $_POST['type'];
 	        $product->description = $_POST['description'];
 	        $product->unit_price = $_POST['unit_price'];
+	        $product->quantity = $_POST['quantity'];
 	        $product->image = $this->saveFile($_FILES['image'], $product->product_id);
 	        if (!$product->image) {
 	            header('location: Product/create');
@@ -37,6 +38,7 @@ class Product extends \app\core\Controller {
 	        $product->type = $_POST['type'];
 	        $product->description = $_POST['description'];
 	        $product->unit_price = $_POST['unit_price'];
+	        $product->quantity = $_POST['quantity'];
 			if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
 			    $newImage = $this->saveFile($_FILES['image'], $product_id);
 			    if ($newImage) {
@@ -63,7 +65,7 @@ class Product extends \app\core\Controller {
         $product = $productModel->get($product_id);
         unlink("./images/$product->image");
         $product->delete();
-        header('location: ../Product/index/');
+        header('location: /Main/index');
     }
 
     public function saveFile($file, $product_id) {

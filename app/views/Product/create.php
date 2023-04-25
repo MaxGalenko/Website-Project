@@ -21,7 +21,11 @@
   </div>
   <div>
     <label for="unit_price">Unit Price:</label>
-    <input type="number" id="unit_price" name="unit_price" required>
+    <input id="unit_price" name="unit_price" required>
+  </div>
+  <div>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" required>
   </div>
   <input type="submit" name="action" value="Create"/>
 </form>

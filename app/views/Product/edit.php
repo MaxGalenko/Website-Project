@@ -9,7 +9,8 @@
         <img src="./images/<?= $data->image ?>" width="100"><br>
     <?php } ?>
     <input type="file" name="image" value="<?=$data->image ?>" ><br>
-    <label>Unit Price: <input type="number" name="unit_price" value="<?=$data->unit_price ?>" required></label><br/>
+    <label>Unit Price: <input name="unit_price" value="<?=$data->unit_price ?>" required></label><br/>
+    <label>Quantity: <input type="number" name="quantity" value="<?=$data->quantity ?>" required></label><br/>
     <input type="hidden" name="clear_image" value="false">
     <button type="button" onclick="clearImage()">Clear Image</button><br>
     <input type="submit" name="action" value="Save Changes">
