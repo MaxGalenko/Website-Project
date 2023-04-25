@@ -19,7 +19,6 @@ class Product extends \app\core\Model {
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
 		return $STH->fetchAll();
 	}
-
 	//get all the products
 	public function getAll() {
 		$SQL = 'SELECT * FROM product';
