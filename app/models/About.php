@@ -10,7 +10,7 @@ class About extends \app\core\Model{
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\About');
-		return $STH->fetchAll();
+		return $STH->fetch();
 	}
 
 	public function update(){
