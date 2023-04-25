@@ -3,7 +3,7 @@
 <h1 style="text-align: center;">Main feed</h1>
 
 <!-- Show product list -->
-<?php foreach ($products as $product): ?>
+<?php foreach ($data as $product): ?>
   <div>
     <h2><?php echo $product->title ?></h2>
     <p><?php echo $product->type ?></p>
