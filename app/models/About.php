@@ -16,7 +16,8 @@ class About extends \app\core\Model{
 	public function update(){
 		$SQL = "UPDATE about SET text=:text WHERE about_id=:about_id";
 		$STH = self::$connection->prepare($SQL);
-		$data = ['text'=>$this->text];
+		$data = ['text'=>$this->text,
+				 'about_id'=>$this->about_id];
 		$STH->execute($data);
 		return $STH->rowCount();
 	}
