@@ -1,11 +1,18 @@
-<?php $this->view('shared/header', 'CliqueBait'); ?>
+<?php $this->view('shared/header', 'Main Page'); ?>
 
 <h1 style="text-align: center;">Main feed</h1>
-<!-- Show publication list -->
-<?php
-foreach ($data as $publication) {
-	$this->view('Publication/partial', $publication);
-}
-?>
+
+<!-- Show product list -->
+<?php foreach ($products as $product): ?>
+  <div>
+    <h2><?php echo $product->title ?></h2>
+    <p><?php echo $product->type ?></p>
+    <p><?php echo $product->description ?></p>
+    <?php if ($product->image): ?>
+      <img src="<?php echo "./images/{$product->image}" ?>" alt="Product Image">
+    <?php endif; ?>
+    <p>$<?php echo $product->unit_price ?></p>
+  </div>
+<?php endforeach; ?>
 
 <?php $this->view('shared/footer'); ?>
