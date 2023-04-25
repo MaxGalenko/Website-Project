@@ -5,9 +5,9 @@
 
 .env
 ```
-db_host=[host name]
-db_name=[database name]
-db_user=[user name]
-db_pass=[password]
+db_host=localhost
+db_name=database
+db_user=user
+db_pass=password
 db_charset=utf8mb4
 ```
