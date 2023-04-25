@@ -10,7 +10,6 @@ class Product extends \app\core\Model {
 	public $image;
 	public $unit_price;
 
-	//get all the products in proce Descending order
 	public function getAllPriceDescending() {
 		$SQL = 'SELECT * FROM product ORDER BY price DESC';
 		$STH = self::$connection->prepare($SQL);
