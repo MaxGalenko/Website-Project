@@ -12,6 +12,14 @@ class Product extends \app\core\Model {
 	public $unit_price;
 	public $quantity;
 
+	public function getAllPriceDescending() {
+		$SQL = 'SELECT * FROM product ORDER BY price DESC';
+		$STH = self::$connection->prepare($SQL);
+		$STH->execute();
+		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
+		return $STH->fetchAll();
+	}
+
 	//get all the products
 	public function getAll() {
 		$SQL = 'SELECT * FROM product';
