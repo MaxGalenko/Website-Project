@@ -6,18 +6,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/HeaderFooter.css">
 </head>
 
 <body>
-  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar sticky-top">
+    <a href='/Main/index'><img src="/images/PathlorLogo.png" id="logo"></a>
+    <a class="navbar-brand" href="/Main/index" id="pathlor"><?=_('Pathlor Tech')?></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+      <button>But</button>
+    </div>
+  </nav>
+
+
+  <!-- <div class="container">
     <nav class="navbar fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a href='/Main/index'><img src="/images/PathlorLogo.png" id="logo"></a>
           <a class="navbar-brand" href="/Main/index" id="pathlor"><?=_('Pathlor Tech')?></a>
         </div>
-        <a href="/User/index">Sign in</a>
+        <div class="topnav-right">
+    <a href="#search">Search</a>
+    <a href="#about">About</a>
+  </div>
+        <div class="navbar-div navbar-left">
+          <a href="/User/index">Sign in</a>
+        </div>
         <form class="navbar-form navbar-left" action="/action_page.php">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" id="searchBox">
@@ -30,7 +58,7 @@
         </form>
       </div>
     </nav>
-  </div>
+  </div> -->
   
     <!-- <div class='container'>
         <nav class="navbar fixed-top" style="background-color: #324A5F;">

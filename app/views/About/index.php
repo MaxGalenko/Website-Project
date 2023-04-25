@@ -1,5 +1,15 @@
 <?php $this->view('shared/header','About us'); ?>
 
-<p style="padding-top: 100px"><?= $data->text ?></p>
+<h1 class="text-center" id="about"><?= _('About Pathlor Tech') ?></h1>
+
+<div class="d-flex justify-content-center" id="about">
+	<div id="aboutText">
+		<p><?= $data->text ?></p>
+	</div>
+</div>
+
+<div id="edit">
+	<a href="/About/edit"><i class="btn btn-primary">Edit</i></a>
+</div>
 
 <?php $this->view('shared/footer'); ?>
