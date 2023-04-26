@@ -5,6 +5,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fa4b0659fe9efc2791e43e3f4e2b52349ef38ab2
 class Contact extends \app\core\Controller{
 	public function index() {
 		if(isset($_POST['send'])) {
