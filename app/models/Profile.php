@@ -11,6 +11,7 @@ class Profile extends \app\core\Model{
 
     //Get Profile information
 	public function get($profile_id) {
+		
         $SQL = "SELECT * FROM profile WHERE profile_id = $profile_id";
         $STH = self::$connection->prepare($SQL);
         $STH->execute();
@@ -20,14 +21,15 @@ class Profile extends \app\core\Model{
 
 	//Update Profile information
 	public function update() {
-        $SQL = 'UPDATE product SET first_name=:first_name, middle_name=:middle_name, last_name=:last_name, email=:email, phone_number=:phone_number WHERE profile_id=:profile_id';
+        $SQL = 'UPDATE profile SET first_name=:first_name, middle_name=:middle_name, last_name=:last_name, email=:email, phone_number=:phone_number WHERE profile_id=:profile_id';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'first_name'=>$this->first_name,
 			'middle_name'=>$this->middle_name,
 			'last_name'=>$this->last_name,
 			'email'=>$this->email,
-			'phone_number'=>$this->phone_number
+			'phone_number'=>$this->phone_number,
+			'profile_id'=>$this->profile_id
 		]);
 	}
 }

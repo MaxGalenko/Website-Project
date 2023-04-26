@@ -18,19 +18,12 @@ class Profile extends \app\core\Controller{
 	public function editProfileInfo(){
 		$profile = new \app\models\Profile();
 		if(isset($_POST['action'])){
-			$id = $_SESSION['user_id'];
-			$firstname = $_POST['first_name_edit'];
-			$middlename = $_POST['middle_name_edit'];
-			$lastname = $_POST['last_name_edit'];
-			$email = $_POST['email_text_edit'];
-			$phone_number = $_POST['phone_number_edit'];
-
-			$profile->profile_id = mysql_real_escape_string($id);
-			$profile->first_name = mysql_real_escape_string($firstname);
-			$profile->middle_name = mysql_real_escape_string($middlename);
-			$profile->last_name = mysql_real_escape_string($lastname);
-			$profile->email = mysql_real_escape_string($email);
-			$profile->phone_number = mysql_real_escape_string($phone_number);
+			$profile->profile_id = $_POST[$_SESSION['user_id']];
+            $profile->first_name = $_POST['first_name_edit'];
+            $profile->middle_name = $_POST['middle_name_edit'];
+            $profile->last_name = $_POST['last_name_edit'];
+            $profile->email = $_POST['email_text_edit)'];
+			$profile->phone_number = $_POST['phone_number_edit'];
 
 			$profile->update();
 			

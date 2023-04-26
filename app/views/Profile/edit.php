@@ -3,8 +3,8 @@
 <div>
     <form name='action' action="/Profile/index">
         <button type="submit">save</button> 
-    </form>
-    <div>
+        
+         <div>
             <h1>First Name: </h1>
             <p contentEditable="true" name='first_name_edit'></p>
 
@@ -20,6 +20,8 @@
             <h1>Phone Number:</h1>
             <p contentEditable="true" name='phone_number_edit'></p>
         </div>  
+    </form>
+   
 </div>
 
 <?php $this->view('shared/footer'); ?>
