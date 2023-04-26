@@ -1,7 +1,11 @@
 <?php $this->view('shared/header', 'Profile Page'); ?>
 
 <div>
-    <button type="submit">edit</button>
+    <form method="post" action="/Profile/editProfileInfo">
+        <button type="submit">
+            edit
+        </button>
+    </form>
     <div>
         <h1>First Name: </h1>
         <p><?php echo $data->first_name ?></p>
