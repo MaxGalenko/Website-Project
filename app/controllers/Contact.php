@@ -18,7 +18,7 @@ class Contact extends \app\core\Controller{
 			$mail->Host = "smtp.gmail.com";
 			$mail->SMTPAuth = true;
 			$mail->Username = "maxymgalenko@gmail.com";
-			$mail->Password = "dacwzjbppcgxujym";
+			$mail->Password = "hyxmjcmckdccypkm";
 			$mail->SMTPSecure = 'ssl';
 			$mail->Port = 465;
 
