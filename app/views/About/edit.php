@@ -9,8 +9,8 @@
 	</div>
 
 	<div id="edit">
-		<a href="/About/index"><i class="btn btn-primary">Cancel</i></a>
-		<button class="btn btn-primary" type="submit" name="action"><?=_('Submit changes')?></button>
+		<a href="/About/index"><i class="btn btn-primary" style="background-color: #324A5F;"><?=_('Cancel')?></i></a>
+		<button class="btn btn-primary" type="submit" name="action" style="background-color: #324A5F;"><?=_('Submit changes')?></button>
 	</div>
 </form>
 <?php $this->view('shared/footer'); ?>

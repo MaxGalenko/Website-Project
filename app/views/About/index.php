@@ -9,7 +9,7 @@
 </div>
 
 <div id="edit">
-	<a href="/About/edit"><i class="btn btn-primary">Edit</i></a>
+	<a href="/About/edit"><i class="btn btn-primary" style="background-color: #324A5F;"><?=_('Edit')?></i></a>
 </div>
 
 <?php $this->view('shared/footer'); ?>
