@@ -12,9 +12,18 @@ class Product extends \app\core\Model {
 	public $unit_price;
 	public $quantity;
 
+	//get all the products by product name
+	public function search($productName) {
+		$SQL = "SELECT * FROM product WHERE title LIKE '$productName%' ORDER BY title ASC";
+		$STH = self::$connection->prepare($SQL);
+		$STH->execute();
+		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
+		return $STH->fetchAll();
+	}
+
 	//get all the products by price ascending
 	public function getAllPriceAscending() {
-		$SQL = 'SELECT * FROM product ORDER BY price ASC';
+		$SQL = 'SELECT * FROM product ORDER BY price';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
