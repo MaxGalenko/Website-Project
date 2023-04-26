@@ -5,7 +5,7 @@ class Main extends \app\core\Controller{
 
 	public function index(){
 		$product = new \app\models\Product();
-		$products = $product->getAllPriceDescending();
+		$products = $product->getAllPriceAscending();
 		$this->view('Main/index', $products);
 	}
 
