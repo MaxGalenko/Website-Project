@@ -12,6 +12,7 @@ class User extends \app\core\Controller{
 				if(password_verify($_POST['password'], $user->password_hash)){
 					//the user is correct!
 					$_SESSION['user_id'] = $user->user_id;
+					$_SESSION['role'] = $user->role;
 					header('location:/Main/index');
 				}else{
 					header('location:/User/index?error=Bad username/password combination');
@@ -57,5 +58,4 @@ class User extends \app\core\Controller{
 		$messages = $message->getAllForUser($_SESSION['user_id']);
 		$this->view('User/profile',$messages);
 	}
-
 }

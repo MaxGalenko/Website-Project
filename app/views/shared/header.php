@@ -19,14 +19,33 @@
     <a class="navbar-brand" href="/Main/index" id="pathlor"><?=_('Pathlor Tech')?></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <?php if(!isset($_SESSION['user_id'])) {?>
+                  <a class="nav-link" href="/User/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-closed' title="Log in"></i></a>
+                <?php } else { ?>
+                  <a class="nav-link" href="/User/logout"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-open' title='Log out'></i></a>
+                <?php }
+                ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <?php if(isset($_SESSION['user_id'])) {?>
+                  <a class="nav-link" href="/Order/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-file-earmark' title="Orders"></i></a>
+                <?php } ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Profile/index">Profile</a>
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer') {?>
+                  <a class="nav-link" href="/Profile/index"><i style="font-size: 2.2rem; color: #FFFFFF; " class='bi bi-person-lines-fill' title="Profile"></i></a>
+                <?php } ?>
+        </li>
+        <li class="nav-item">
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer') {?>
+                  <a class="nav-link" href="/Cart/index"><i style="font-size: 2.1rem; color: #FFFFFF; " class='bi bi-cart3' title="Cart"></i></a>
+                <?php } ?>
+        </li>
+        <li class="nav-item">
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {?>
+                  <a class="nav-link" href="/Product/create"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-plus-square' title="Post Product"></i></a>
+                <?php } ?>
         </li>
       </ul>
       <form action="/Main/search/" class="form-inline my-2 my-lg-0">

@@ -19,6 +19,8 @@
                 <div class="form-group">
                     <label for="image">Image:</label>
                     <br>
+                    <img id='pic_preview' width='200px'/>
+                    <br>
                     <?php if(isset($product) && $product->image != '') { ?>
                         <img src="./images/<?= $data->image ?>" width="100"><br>
                     <?php } ?>
@@ -40,9 +42,18 @@
         </div>
     </div>
 </div>
+<script>
+    image.onchange = evt => {
+        const [file] = picture.files
+        if (file) {
+        pic_preview.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 <?php $this->view('shared/footer'); ?>
 <script>
     function clearImage() {
         document.querySelector('input[name="clear_image"]').value = 'true';
     }
 </script>
+

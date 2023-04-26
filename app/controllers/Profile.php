@@ -18,18 +18,18 @@ class Profile extends \app\core\Controller{
 	public function editProfileInfo(){
 		$profile = new \app\models\Profile();
 		if(isset($_POST['action'])){
-			$profile->profile_id = $_POST[$_SESSION['user_id']];
+			$profile->profile_id = $_SESSION['user_id'];
             $profile->first_name = $_POST['first_name_edit'];
             $profile->middle_name = $_POST['middle_name_edit'];
             $profile->last_name = $_POST['last_name_edit'];
-            $profile->email = $_POST['email_text_edit)'];
+            $profile->email = $_POST['email_text_edit'];
 			$profile->phone_number = $_POST['phone_number_edit'];
 
 			$profile->update();
 			
-			header('location:/Profile/index');
-		}
-		$this->view('Profile/edit', $profile);
+			//header('location:/Profile/index');
+		}else
+			$this->view('Profile/edit', $profile);
 	}
 
 	#[\app\filters\Login]

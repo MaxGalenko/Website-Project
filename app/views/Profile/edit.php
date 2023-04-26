@@ -1,8 +1,8 @@
 <?php $this->view('shared/header', 'Profile Page'); ?>
 
 <div>
-    <form name='action' action="/Profile/index">
-        <button type="submit">save</button> 
+    <form name='action' action="/Profile/editProfileInfo" method="post">
+        <button type="submit" name="action">save</button> 
         
          <div>
             <h1>First Name: </h1>

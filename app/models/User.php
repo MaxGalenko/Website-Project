@@ -5,6 +5,7 @@ class User extends \app\core\Model{
 	public $user_id;
 	public $username;
 	public $password_hash;
+	public $role;
 
 	public function getByUsername($username){
 		$SQL = 'SELECT * FROM User WHERE username = :username';
