@@ -3,13 +3,12 @@ namespace app\controllers;
 
 class Profile extends \app\core\Controller{
 	#[\app\filters\Login]
-	#[\app\filters\Profile]
 	public function index(){
 		$profile = new \app\models\Profile();
-		$profile = $profile->get($_SESSION['profile_id']);
-		$this->view('Profile/details', $profile);
+		$profile = $profile->get($_SESSION['user_id']);
+		$this->view('Profile/index', $profile);
 	}
-
+	
 	public function details($profile_id){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($profile_id);
@@ -17,7 +16,6 @@ class Profile extends \app\core\Controller{
 	}
 
 	#[\app\filters\Login]
-	#[\app\filters\Profile]
 	public function edit(){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['profile_id']);

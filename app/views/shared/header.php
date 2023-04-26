@@ -25,9 +25,12 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Profile/index">Profile</a>
+        </li>
       </ul>
       <form action="/Main/search/" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_term" method=POST>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_term">
         <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
       <button class="btn btn-outline-light" type="submit">FR</button>

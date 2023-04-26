@@ -4,7 +4,7 @@
     <button type="submit">edit</button>
     <div>
         <h1>First Name: </h1>
-        <p ><?php echo $data->first_name ?></p>
+        <p><?php echo $data->first_name ?></p>
 
         <h1>Middle Name:</h1>
         <p><?php echo $data->middle_name ?></p>

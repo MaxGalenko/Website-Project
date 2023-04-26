@@ -14,7 +14,7 @@ class Product extends \app\core\Model {
 
 	//get all the products by product name
 	public function search($productName) {
-		$SQL = "SELECT * FROM product WHERE title LIKE '$productName%' ORDER BY title ASC";
+		$SQL = "SELECT * FROM product WHERE title LIKE '%$productName%' ORDER BY title ASC";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
