@@ -29,9 +29,9 @@
                     <label for="quantity" style="color: #324A5F;">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" class="form-control" required style="color: #324A5F;">
                 </div>
-                <button type="submit" class="btn btn-primary" name="action" value='Create' style="background-color: #324A5F;">Create</button>
+                <a href="/Main/index" class="btn btn-secondary">Back</a>
+                <button type="submit" class="btn btn-default" name="action" value='Create' style="background-color: #324A5F; color: #FFFFFF; ">Create</button>
             </form>
-            <a href="/Main/index" class="btn btn-secondary">Back</a>
         </div>
     </div>
 </div>

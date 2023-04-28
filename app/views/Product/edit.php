@@ -35,10 +35,10 @@
                     <input type="number" id="quantity" name="quantity" class="form-control" value="<?=$data->quantity ?>" required style="color: #324A5F;">
                 </div>
                 <input type="hidden" name="clear_image" value="false">
-                <button type="button" class="btn btn-primary" onclick="clearImage()" style="background-color: #324A5F;">Clear Image</button><br>
-                <button type="submit" class="btn btn-primary" name="action" value='Save Changes' style="background-color: #324A5F;">Save Changes</button>
+                <a href="/Main/index" class="btn btn-secondary">Back</a>
+                <button type="button" class="btn btn-default" onclick="clearImage()" style="background-color: #324A5F; color: #FFFFFF; ">Clear Image</button>
+                <button type="submit" class="btn btn-default" name="action" value='Save Changes' style="background-color: #324A5F; color: #FFFFFF; ">Save Changes</button>
             </form>
-            <a href="/Main/index" class="btn btn-secondary">Back</a>
         </div>
     </div>
 </div>

@@ -5,24 +5,22 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fa4b0659fe9efc2791e43e3f4e2b52349ef38ab2
 class Contact extends \app\core\Controller{
 	public function index() {
+		$contact = new \app\models\Info();
+		$contact = $contact->getText();
 		if(isset($_POST['send'])) {
 			$mail = new PHPMailer(true);
 
 			$mail->isSMTP();
-			$mail->Host = "smtp.gmail.com";
+			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = "maxymgalenko@gmail.com";
-			$mail->Password = "hyxmjcmckdccypkm";
+			$mail->Username = 'maxymgalenko@gmail.com';
+			$mail->Password = 'hyxmjcmckdccypkm';
 			$mail->SMTPSecure = 'ssl';
 			$mail->Port = 465;
 
-			$mail->setFrom($_POST['email']);
+			$mail->setFrom('maxymgalenko@gmail.com');
 			$mail->addAddress('maxymgalenko@gmail.com');
 
 			$mail->isHTML(true);
@@ -34,9 +32,25 @@ class Contact extends \app\core\Controller{
 
 			$mail->send();
 
-			header("location:/Contact/index");
+			header('location:/Contact/sent');
 		}else {
-			$this->view("Contact/index");
+			$this->view('Contact/index', $contact);
 		}
+	}
+
+	public function edit(){
+		$contact = new \app\models\Info();
+		$contact = $contact->getText();
+		if(isset($_POST['action'])){
+			$contact->contact_text = $_POST['contact_text'];
+			$contact->updateContactText();
+			header('location:/Contact/index');
+		}else{
+			$this->view('Contact/edit', $contact);
+		}
+	}
+
+	public function sent(){
+		$this->view('Contact/sent');
 	}
 }

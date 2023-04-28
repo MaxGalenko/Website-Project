@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2023 at 10:52 PM
+-- Generation Time: Apr 28, 2023 at 03:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -26,25 +26,6 @@ USE `pathlor`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about`
---
-
-DROP TABLE IF EXISTS `about`;
-CREATE TABLE `about` (
-  `about_id` int(11) NOT NULL,
-  `text` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `about`
---
-
-INSERT INTO `about` (`about_id`, `text`) VALUES
-(1, 'Welcome to Pathlor Tech');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `address`
 --
 
@@ -58,6 +39,26 @@ CREATE TABLE `address` (
   `province` varchar(50) NOT NULL,
   `country` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `info`
+--
+
+DROP TABLE IF EXISTS `info`;
+CREATE TABLE `info` (
+  `info_id` int(11) NOT NULL,
+  `about_text` text NOT NULL,
+  `contact_text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `info`
+--
+
+INSERT INTO `info` (`info_id`, `about_text`, `contact_text`) VALUES
+(1, 'Welcome to Pathlor Tech', '@instagram | example@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -166,17 +167,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
-(2, 'Ali', '$2y$10$fgyI4Rr06F8J9sHld3ztnu4QYMc9x9fS5KLvVxJBHqaJEiZt/72y6', 'customer');
+(2, 'Ali', '$2y$10$fgyI4Rr06F8J9sHld3ztnu4QYMc9x9fS5KLvVxJBHqaJEiZt/72y6', 'customer'),
+(3, 'Maxym', '$2y$10$4d8kRWRuv3Z5HmTrBfRuD.3FpRwUgb5XEwT5Yiq1FXl1hix1xryH6', 'admin');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`about_id`);
 
 --
 -- Indexes for table `address`
@@ -184,6 +180,12 @@ ALTER TABLE `about`
 ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`),
   ADD KEY `address_to_profile` (`profile_id`);
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`info_id`);
 
 --
 -- Indexes for table `orders`
@@ -231,16 +233,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `about`
---
-ALTER TABLE `about`
-  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
   MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -270,13 +272,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
