@@ -1,3 +1,7 @@
+html {
+	height: 100%;
+}
+
 nav{
 	background-color: #324A5F;
 }
@@ -42,10 +46,6 @@ footer {
 
 #about {
 	padding-top: 20px;
-}
-
-html {
-	height: 100%;
 }
 
 body {
