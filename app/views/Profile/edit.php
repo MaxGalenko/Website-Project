@@ -1,9 +1,13 @@
 <?php $this->view('shared/header', 'Profile Page'); ?>
 
-<div>
+<link rel="stylesheet" href="../../../css/Profile/main.css">
+
+<!-- This is the container to preview both address and profile side by side -->
+<div class="contentContainers">
     <form name='action' action="/Profile/editProfileInfo" method="post">
-        <button type="submit" name="action">save</button> 
         
+        <h1>Personal Information</h1>
+        <button type="submit" name="action">save</button> 
          <div>
             <h1>First Name: </h1>
             <input type="text" id="fname" name="first_name_edit" value="<?= $data->first_name ?>">
@@ -20,8 +24,7 @@
             <h1>Phone Number:</h1>
             <input type="text" id="fname" name="phone_number_edit" value="<?= $data->phone_number ?>">
         </div>  
-    </form>
-   
+    </form> 
 </div>
 
 <?php $this->view('shared/footer'); ?>

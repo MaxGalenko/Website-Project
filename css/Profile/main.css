@@ -1,3 +1,63 @@
-button {
-    background-color: pink;
+#personalInfoAddressContainer {
+    display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentContainers {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: azure;
+    
+    border: 5px solid lightblue;
+    border-radius: 15px;
+}
+
+.contentContainers h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    margin-bottom: 5%;
+}
+
+.contentContainers h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.contentContainers p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 5%;
+}
+
+.contentContainers button {
+    color: rgb(53, 121, 180);
+    border-radius: 10px;
+    background-color: azure;
+    border: 5px solid lightblue;
+    margin-bottom: 5%;
+    width: 400px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    
+}
+
+.contentContainers input {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 5%;
 }
