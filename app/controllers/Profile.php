@@ -17,7 +17,9 @@ class Profile extends \app\core\Controller{
 
 	public function editProfileInfo(){
 		$profile = new \app\models\Profile();
-		if(isset($_POST['action'])){
+		$profile = $profile->get($_SESSION['user_id']);
+
+		if(isset($_POST['action'])) {
 			$profile->profile_id = $_SESSION['user_id'];
             $profile->first_name = $_POST['first_name_edit'];
             $profile->middle_name = $_POST['middle_name_edit'];
@@ -27,9 +29,11 @@ class Profile extends \app\core\Controller{
 
 			$profile->update();
 			
-			//header('location:/Profile/index');
-		}else
+			header('location:/Profile/index');
+		}
+		else {
 			$this->view('Profile/edit', $profile);
+		}
 	}
 
 	#[\app\filters\Login]
