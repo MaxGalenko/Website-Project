@@ -10,11 +10,12 @@ class Product extends \app\core\Model {
 	public $description;
 	public $image;
 	public $unit_price;
+	public $discount_price;
 	public $quantity;
 
 	//get all the products by product name
 	public function search($productName) {
-		$SQL = "SELECT * FROM product WHERE title LIKE '%$productName%' ORDER BY title ASC";
+		$SQL = "SELECT * FROM product WHERE title LIKE '%$productName%' ORDER BY title DESC";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');

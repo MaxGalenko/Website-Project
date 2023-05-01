@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2023 at 03:39 AM
+-- Generation Time: May 01, 2023 at 04:56 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -121,6 +121,7 @@ CREATE TABLE `product` (
   `description` text NOT NULL,
   `image` varchar(128) DEFAULT NULL,
   `unit_price` double NOT NULL,
+  `discount_price` double NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -128,9 +129,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`, `quantity`) VALUES
-(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', 209.99, 10),
-(9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, 199.99, 5);
+INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`, `discount_price`, `quantity`) VALUES
+(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', 209.99, 150.99, 10),
+(9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, 199.99, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
 (2, 'Ali', '$2y$10$fgyI4Rr06F8J9sHld3ztnu4QYMc9x9fS5KLvVxJBHqaJEiZt/72y6', 'customer'),
-(3, 'Maxym', '$2y$10$4d8kRWRuv3Z5HmTrBfRuD.3FpRwUgb5XEwT5Yiq1FXl1hix1xryH6', 'admin');
+(3, 'Maxym', '$2y$10$4d8kRWRuv3Z5HmTrBfRuD.3FpRwUgb5XEwT5Yiq1FXl1hix1xryH6', 'customer');
 
 --
 -- Indexes for dumped tables
