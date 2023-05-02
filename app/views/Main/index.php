@@ -7,8 +7,14 @@
 <!-- Show product list -->
 <div class="row row-cols-1 row-cols-md-5">
 <?php
-foreach ($data as $product) {
-	$this->view('Product/partial', $product);
+foreach ($data as $product) { ?>
+		<div class="card" style="width: 18rem;">
+	  <img src="..." class="card-img-top" alt="...">
+	  <div class="card-body">
+	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	  </div>
+	</div>
+<?php
 }
 ?>
 </div>
