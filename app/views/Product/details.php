@@ -1,20 +1,22 @@
 <?php $this->view('shared/header', 'Product Details'); ?>
-
-<div class="product-details">
-    <div class="image">
-        <?php if($product->image){ ?>
-            <img src="/images/<?= $product->image ?>" alt="Product Image">
-        <?php } ?>
-    </div>
-    <div class="caption">
-        <h1 class="product_name"><?= $product->title ?></h1>
-        <p class="price"><b><?= $product->unit_price ?></b></p>
-        <?php if ($product->discount_price != 0) { ?>
-            <p class="discount"><b><del><?= $product->discount_price ?></del></b></p>
-        <?php } ?>
-        <p class="description"><?= $product->description ?></p>
-        
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <?php if ($data) { ?>
+                <h1><?= $data->title ?></h1>
+                <p><b>Type:</b> <?= $data->type ?></p>
+                <p><b>Description:</b> <?= $data->description ?></p>
+                <p><b>Unit Price:</b> <?= $data->unit_price ?></p>
+                <p><b>Quantity:</b> <?= $data->quantity ?></p>
+                <?php if ($data->image) { ?>
+                    <img src="/images/<?= $data->image ?>" width="200">
+                <?php } ?>
+            <?php } else { ?>
+                <p>Product not found.</p>
+            <?php } ?>
+            <br><a href="/Main/index" class="btn btn-secondary">Back</a>
+        </div>
     </div>
 </div>
-
 <?php $this->view('shared/footer'); ?>
+
