@@ -1,6 +1,6 @@
 <?php $this->view('shared/header', 'Main Page'); ?>
 
-<link rel="stylesheet" type="text/css" href="/css/MainStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/Main/style.css">
 
 <h1 style="text-align: center;">Products</h1>
 
