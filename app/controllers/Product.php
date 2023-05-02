@@ -66,6 +66,13 @@ class Product extends \app\core\Controller {
         $product->delete();
         header('location: ../Product/index/');
     }
+    
+    public function details($product_id) {
+    $productModel = new \app\models\Product();
+    $product = $productModel->get($product_id);
+    $this->view('Product/details', $product);
+    }
+
 
     public function saveFile($file, $product_id) {
         $path = './images/';

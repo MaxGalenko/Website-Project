@@ -23,6 +23,8 @@
 				<p class="discount"><b><del><?php $product->discount_price ?></del></b></p>
 				<p class="quantity"><b>Q: <?= $product->quantity ?></b></p>
 			</div>
+			 <a href="/Product/details/<?php echo $product->product_id; ?>"><button>View details</button></a>
+
 			<button class="add">Add to cart</button>
 		</div>
 	</main>
