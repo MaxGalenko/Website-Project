@@ -24,7 +24,7 @@ class Product extends \app\core\Model {
 
 	//get all the products by price ascending
 	public function getAllPriceAscending() {
-		$SQL = 'SELECT * FROM product ORDER BY price';
+		$SQL = 'SELECT * FROM product ORDER BY unit_price';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
@@ -33,7 +33,7 @@ class Product extends \app\core\Model {
 
 	//get all the products by price descending
 	public function getAllPriceDescending() {
-		$SQL = 'SELECT * FROM product ORDER BY price DESC';
+		$SQL = 'SELECT * FROM product ORDER BY unit_price DESC';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
