@@ -17,6 +17,9 @@
 		<form action="/Cart/index">
 			<button class="add">Add to cart</button>
 		</form>
-		 <a href="/Product/details/<?= $data->product_id; ?>"><button>View details</button></a>
+		<form action="/Product/details/<?= $data->product_id; ?>">
+			<button>View details</button>
+
+		</form>
 	</div>
 </main>
