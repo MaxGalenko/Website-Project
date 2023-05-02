@@ -9,6 +9,13 @@ class Profile extends \app\core\Model{
     public $email;
 	public $phone_number;
 
+	public $address_id;
+	public $street_address;
+	public $postal_code;
+	public $city;
+	public $province;
+	public $country;
+
     //Get Profile information
 	public function get($profile_id) {
 		
@@ -30,6 +37,29 @@ class Profile extends \app\core\Model{
 			'email'=>$this->email,
 			'phone_number'=>$this->phone_number,
 			'profile_id'=>$this->profile_id
+		]);
+	}
+
+	public function getAddress($profile_id)
+	{
+		$SQL = "SELECT * FROM address WHERE profile_id = $profile_id";
+        $STH = self::$connection->prepare($SQL);
+        $STH->execute();
+        $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Profile');
+        return $STH->fetch();
+	}
+
+	//Update Profile information
+	public function updateAddress() {
+        $SQL = 'UPDATE address SET street_address=:street_address, postal_code=:postal_code, city=:city, province=:province, country=:country WHERE profile_id=:profile_id';
+		$STH = self::$connection->prepare($SQL);
+		$STH->execute([
+			'profile_id'=>$this->profile_id,
+			'street_address'=>$this->street_address,
+			'postal_code'=>$this->postal_code,
+			'city'=>$this->city,
+			'province'=>$this->province,
+			'country'=>$this->country
 		]);
 	}
 }
