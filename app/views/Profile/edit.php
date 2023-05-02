@@ -1,9 +1,9 @@
 <?php $this->view('shared/header', 'Profile Page'); ?>
 
-<link rel="stylesheet" href="../../../css/Profile/main.css">
+<link rel="stylesheet" href="/css/Profile/main.css">
 
 <!-- This is the container to preview both address and profile side by side -->
-<div class="contentContainers">
+<div class="contentContainerC">
     <form name='action' action="/Profile/editProfileInfo" method="post">
         
         <h1>Personal Information</h1>
