@@ -14,7 +14,7 @@
 			<p class="discount"><b><del><?php $data->discount_price ?></del></b></p>
 			<p class="quantity"><b>Q: <?= $data->quantity ?></b></p>
 		</div>
-		<form action="/Cart/index">
+		<form action="/Cart/add">
 			<button class="add">Add to cart</button>
 		</form>
 		 <a href="/Product/details/<?= $data->product_id; ?>"><button>View details</button></a>

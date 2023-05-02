@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 03:03 AM
+-- Generation Time: May 02, 2023 at 09:04 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -171,8 +171,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
-(2, 'Ali', '$2y$10$fgyI4Rr06F8J9sHld3ztnu4QYMc9x9fS5KLvVxJBHqaJEiZt/72y6', 'customer'),
-(3, 'Maxym', '$2y$10$4d8kRWRuv3Z5HmTrBfRuD.3FpRwUgb5XEwT5Yiq1FXl1hix1xryH6', 'admin');
+(4, 'A', '$2y$10$o36BXwd.ArZYo.P.Js9dIeF3PArTIHpDXvYnohn5C/QB8tx3nCKM6', 'admin'),
+(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -282,7 +282,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

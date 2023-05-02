@@ -17,11 +17,11 @@
 						<p>Red Printed TShirt</p>
 						<small>Price: $50.00</small>
 						<br>
-						<a href="">Remove</a>
+						<a href="/Cart/remove">Remove</a>
 					</div>
 				</div>
 			</td>
-			<td><input type="number" name="" value="1"></td>
+			<td><input type="number" name="" value="1" min="1" max="100"></td>
 			<td>$50.00</td>
 		</tr>
 	</table>
