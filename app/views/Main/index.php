@@ -8,7 +8,7 @@
 <div class="row row-cols-1 row-cols-md-5">
 <?php
 foreach ($data as $product) {
-	$this->view('Product/partial', $product);
+	$this->view('Product/mainPartial', $product);
 } ?>
 
 </div>
