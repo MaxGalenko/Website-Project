@@ -20,11 +20,11 @@ class Product extends \app\core\Controller {
             $product->quantity = $_POST['quantity'];
             $product->image = $this->saveFile($_FILES['image'], $product->product_id);
             if (!$product->image) {
-                header('location: Product/create');
+                header('location:/Product/create');
                 return;
             }
             $product->create();
-            header('location: Main/index');
+            header('location:/Main/index');
         } else {
             $this->view('Product/create');
         }
@@ -45,7 +45,7 @@ class Product extends \app\core\Controller {
                     unlink("./images/$product->image");
                     $product->image = $newImage;
                 } else {
-                    header('location: Product/edit/' . $product_id);
+                    header('location:/Product/edit/' . $product_id);
                     return;
                 }
             } elseif (isset($_POST['clear_image']) && $_POST['clear_image'] === 'true') {
@@ -53,7 +53,7 @@ class Product extends \app\core\Controller {
                 $product->image = null;
             }
             $product->update();
-            header('location: /Main/index');
+            header('location:/Main/index');
         } else {
             $this->view('Product/edit', $product);
         }
@@ -64,7 +64,7 @@ class Product extends \app\core\Controller {
         $product = $productModel->get($product_id);
         unlink("./images/$product->image");
         $product->delete();
-        header('location: ../Product/index/');
+        header('location:/Product/index/');
     }
     
     public function details($product_id) {
