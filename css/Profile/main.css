@@ -8,12 +8,46 @@
     align-items: center;
 }
 
-.contentContainers {
+.contentContainerC {
     display: flex;
     flex-direction: column;
     padding: 2%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: azure;
+    
+    border: 5px solid lightblue;
+    border-radius: 15px;
+}
+
+.contentContainerL {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+
     margin-left: 15%;
+    margin-right: 2.5%;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: azure;
+    
+    border: 5px solid lightblue;
+    border-radius: 15px;
+}
+
+.contentContainerR {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+
     margin-right: 15%;
+    margin-left: 2.5%;
 
     justify-content: center;
     align-items: center;
