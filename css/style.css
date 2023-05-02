@@ -75,3 +75,10 @@ h1 {
 	font-family: 'Paytone One', sans-serif;
 	color: #324A5F;
 }
+
+.float-img {
+	float: left;
+	margin: 0 10px 5px 0; 
+	padding: 2px;
+	width: 50%;
+}

@@ -1,7 +1,5 @@
 <?php $this->view('shared/header', 'Product Details'); ?>
 
-<link rel="stylesheet" type="text/css" href="/css/MainStyle.css">
-
 <div class="container">
     <div class="card">
         <div class="card-body">

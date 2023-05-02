@@ -26,6 +26,10 @@
                     <input id="unit_price" name="unit_price" class="form-control" required style="color: #324A5F;">
                 </div>
                 <div class="form-group">
+                    <label for="discount_price" style="color: #324A5F;">Discount Price:</label>
+                    <input id="discount_price" name="discount_price" class="form-control" required style="color: #324A5F;">
+                </div>
+                <div class="form-group">
                     <label for="quantity" style="color: #324A5F;">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" class="form-control" required style="color: #324A5F;">
                 </div>

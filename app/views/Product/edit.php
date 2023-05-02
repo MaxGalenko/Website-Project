@@ -31,6 +31,10 @@
                     <input id="unit_price" name="unit_price" class="form-control" value="<?=$data->unit_price ?>" required style="color: #324A5F;">
                 </div>
                 <div class="form-group">
+                    <label for="discount_price">Discount Price:</label>
+                    <input id="discount_price" name="unit_price" class="form-control" value="<?=$data->discount_price ?>" required style="color: #324A5F;">
+                </div>
+                <div class="form-group">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" class="form-control" value="<?=$data->quantity ?>" required style="color: #324A5F;">
                 </div>
