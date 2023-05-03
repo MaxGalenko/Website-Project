@@ -19,7 +19,7 @@ class Profile extends \app\core\Model{
     //Get Profile information
 	public function get($profile_id) {
         // $SQL = "SELECT * FROM profile WHERE profile_id = $profile_id";
-		$SQL = "SELECT * FROM profile LEFT JOIN address ON profile.profile_id = address.profile_id";
+		$SQL = "SELECT * FROM profile LEFT JOIN address ON profile.profile_id = address.profile_id WHERE profile.profile_id = $profile_id";
         $STH = self::$connection->prepare($SQL);
         $STH->execute();
         $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Profile');

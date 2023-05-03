@@ -8,8 +8,6 @@ class Profile extends \app\core\Controller{
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['user_id']);	//Personal Information
 		$this->view('Profile/index', $profile);
-
-		// $profile2 = $profile->getAddress($_SESSION['user_id']); //Get all possible addresses
 	}
 
 	// Updates the address information about a specific user
