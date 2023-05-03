@@ -2,23 +2,20 @@
 namespace app\controllers;
 
 class Profile extends \app\core\Controller{
+	// Main Profile Page - Shows an overview of the profile and address information
 	#[\app\filters\Login]
 	public function index(){
-		$profile = $profile2 = new \app\models\Profile();
-		$profile = $profile->get($_SESSION['user_id']);	//Personal Information
-		$profile2 = $profile->getAddress($_SESSION['user_id']); //Get all possible addresses
-		$this->view('Profile/index', [$profile, $profile2]);
-	}
-	
-	public function details($profile_id){
 		$profile = new \app\models\Profile();
-		$profile = $profile->get($profile_id);
-		$this->view('Profile/details', $profile);
+		$profile = $profile->get($_SESSION['user_id']);	//Personal Information
+		$this->view('Profile/index', $profile);
+
+		// $profile2 = $profile->getAddress($_SESSION['user_id']); //Get all possible addresses
 	}
 
+	// Updates the address information about a specific user
 	public function editAddressInfo(){
 		$profile = new \app\models\Profile();
-		$profile = $profile->getAddress($_SESSION['user_id']);
+		$profile = $profile->get($_SESSION['user_id']);
 
 		if(isset($_POST['action'])) {
 			$profile->profile_id = $_SESSION['user_id'];
@@ -37,6 +34,7 @@ class Profile extends \app\core\Controller{
 		}
 	}
 
+	// Updates a personal information about a specific user
 	public function editProfileInfo(){
 		$profile = new \app\models\Profile();
 		$profile = $profile->get($_SESSION['user_id']);
@@ -58,6 +56,7 @@ class Profile extends \app\core\Controller{
 		}
 	}
 
+	// Views a edit form representing the personal information
 	#[\app\filters\Login]
 	public function edit(){
 		$profile = new \app\models\Profile();
@@ -81,5 +80,10 @@ class Profile extends \app\core\Controller{
 		}else{
 			$this->view('Profile/create');
 		}
+	}
+
+	public function registerPersonalInformation()
+	{
+		
 	}
 }
