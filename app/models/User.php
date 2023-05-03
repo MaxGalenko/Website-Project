@@ -25,6 +25,4 @@ class User extends \app\core\Model{
 	                    'role' => 'customer']);
 	    return self::$connection->lastInsertId();// returns the value of the new PK
 	}
-
-
 }
