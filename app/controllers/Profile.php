@@ -82,8 +82,30 @@ class Profile extends \app\core\Controller{
 		}
 	}
 
+	// Views a form showing the personal information
 	public function registerPersonalInformation()
 	{
-		
+		$this->view('Profile/registerPers');
+	}
+
+	// insert the information regarding the user into the database
+	public function register(){
+		if(isset($_POST['action'])){
+			//process the input
+			$user = new \app\models\User();
+			$usercheck = $user->getByUsername($_POST['username']);
+			if(!$usercheck){
+				$user->username= $_POST['username'];
+				$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				$user->insert();
+				header('location:/Profile/registerPersonalInformation');
+			}else{
+				header('location:/User/register?error=Username ' . $_POST['username'] . ' already in use. Choose another.');
+			}
+
+		}else{
+			//display the form
+			$this->view('User/register');//TODO: add the new view file
+		}
 	}
 }

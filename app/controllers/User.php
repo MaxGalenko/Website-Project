@@ -36,7 +36,7 @@ class User extends \app\core\Controller{
 				$user->username= $_POST['username'];
 				$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				$user->insert();
-				header('location:/User/index');
+				header('location:/Profile/registerPersonalInformation');
 			}else{
 				header('location:/User/register?error=Username ' . $_POST['username'] . ' already in use. Choose another.');
 			}
