@@ -31,13 +31,12 @@
 	  <div class="card-body">
 	    <h5 class="card-title"><?= $data->title ?></h5>
 	    <p class="card-text"><?= $data->unit_price ?></p>
-	    <!-- <?php if ($data->discount_price != 0) { ?>
-				<p class="discount"><b><del><?php $data->discount_price ?></del></b></p>
-			<?php } ?> -->
-		<p class="card-text"><b><del><?php $data->discount_price ?></del></b></p>
+	    <?php if ($data->discount_price != 0) { ?>
+				<p class="discount"><b><del><?= $data->discount_price ?></del></b></p>
+			<?php } ?>
 	    <p class="card-text">Q: <?= $data->quantity ?></p>
-	    <a href="#" class="btn btn-primary" style="background-color: #324A5F">Add to Cart</a>
-	    <a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-primary" style="background-color: #324A5F">View details</a>
+	    <a href="#" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF;">Add to Cart</a>
+	    <a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
 	  </div>
 	</div>
 </main>
