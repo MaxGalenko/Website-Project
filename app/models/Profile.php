@@ -18,7 +18,6 @@ class Profile extends \app\core\Model{
 
     //Get Profile information
 	public function get($profile_id) {
-		
         // $SQL = "SELECT * FROM profile WHERE profile_id = $profile_id";
 		$SQL = "SELECT * FROM profile LEFT JOIN address ON profile.profile_id = address.profile_id";
         $STH = self::$connection->prepare($SQL);
@@ -66,12 +65,14 @@ class Profile extends \app\core\Model{
 		]);
 	}
 
+	// creating a personal information for the profile
 	public function createProfile()
 	{
-		$SQL = 'INSERT INTO profile(first_name, middle_name, last_name, email, phone_number) VALUES (:first_name, :middle_name, :last_name, :email, :phone_number)';
+		$SQL = 'INSERT INTO profile(profile_id, first_name, middle_name, last_name, email, phone_number) VALUES (:profile_id, :first_name, :middle_name, :last_name, :email, :phone_number)';
 	    $STH = self::$connection->prepare($SQL);
 
 	    $STH->execute([
+						'profile_id' =>$this->profile_id,
 						'first_name'=>$this->first_name,
 	                    'middle_name'=>$this->middle_name,
 	                    'last_name' => $this->last_name,
@@ -82,20 +83,31 @@ class Profile extends \app\core\Model{
 	    return self::$connection->lastInsertId();// returns the value of the new PK
 	}
 
-	public function createAddress($user_id)
+	// Creating a address for the user
+	public function createAddress()
 	{
 		$SQL = 'INSERT INTO address(profile_id, street_address, postal_code, city, province, country) VALUES (:profile_id, :street_address, :postal_code, :city, :province, :country)';
 	    $STH = self::$connection->prepare($SQL);
 
 	    $STH->execute([
-						'profile_id' => $user_id,
+						'profile_id' =>$this->profile_id,
 						'street_address'=>$this->street_address,
-	                    'middle_name'=>$this->middle_name,
-	                    'last_name' => $this->last_name,
-						'province' => $this->province,
-						'country' => $this->country
+	                    'postal_code'=>$this->postal_code,
+	                    'city'=>$this->city,
+						'province'=>$this->province,
+						'country'=>$this->country
 					]); 
 					
 	    return self::$connection->lastInsertId();// returns the value of the new PK
+	}
+
+	// Get the most recent user from the user table and connect it to profile table
+	public function getProfileID()
+	{
+		$SQL = 'SELECT user_id FROM user ORDER BY user_id DESC LIMIT 1';
+		$STH = self::$connection->prepare($SQL);
+        $STH->execute();
+        $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Profile');
+        return $STH->fetch();
 	}
 }

@@ -66,8 +66,8 @@ class Profile extends \app\core\Controller{
 
 	#[\app\filters\Login]
 	public function create(){
+		$profile = new \app\models\Profile();
 		if(isset($_POST['action'])){
-			$profile = new \app\models\Profile();
 			$profile->first_name = $_POST['first_name'];
 			$profile->middle_name = $_POST['middle_name'];
 			$profile->last_name = $_POST['last_name'];
@@ -88,24 +88,51 @@ class Profile extends \app\core\Controller{
 		$this->view('Profile/registerPers');
 	}
 
+	// Views a form showing the address information
+	public function registerAddressInformation()
+	{
+		$this->view('Profile/registerAddr');
+	}
+
 	// insert the information regarding the user into the database
 	public function register(){
+		$user = new \app\models\Profile();
+		
 		if(isset($_POST['action'])){
 			//process the input
-			$user = new \app\models\User();
-			$usercheck = $user->getByUsername($_POST['username']);
-			if(!$usercheck){
-				$user->username= $_POST['username'];
-				$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-				$user->insert();
-				header('location:/Profile/registerPersonalInformation');
-			}else{
-				header('location:/User/register?error=Username ' . $_POST['username'] . ' already in use. Choose another.');
-			}
+			$user->profile_id = $user->getProfileID()->user_id;
+			$user->first_name = $_POST['first_name'];
+			$user->middle_name = $_POST['middle_name'];
+			$user->last_name = $_POST['last_name'];
+			$user->email = $_POST['email'];
+			$user->phone_number = $_POST['phone_number'];
+			$user->createProfile();	//Get the latest insert from the user
 
+			header('location:/Profile/registerAddressInformation');
 		}else{
 			//display the form
-			$this->view('User/register');//TODO: add the new view file
+			$this->view('Profile/registerPersonalInformation');//TODO: add the new view file
 		}
 	}
+
+		// insert the information regarding the user into the database
+		public function registerAddress(){
+			$user = new \app\models\Profile();
+			
+			if(isset($_POST['action'])){
+				//process the input
+				$user->profile_id = $user->getProfileID()->user_id;
+				$user->street_address = $_POST['street_address'];
+				$user->postal_code = $_POST['postal_code'];
+				$user->city = $_POST['city'];
+				$user->province = $_POST['province'];
+				$user->country = $_POST['country'];
+				$user->createAddress();	//Get the latest insert from the user
+	
+				header('location:/User/index');
+			}else{
+				//display the form
+				$this->view('Profile/registerAddressInformation');//TODO: add the new view file
+			}
+		}
 }
