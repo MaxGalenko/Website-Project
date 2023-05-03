@@ -5,44 +5,32 @@
 <div class="cart-page">
 	<table>
 		<tr>
-			<th>Product</th>
-			<th>Quantity</th>
-			<th>Subtotal</th>
+			<th><?=_('Product')?></th>
+			<th><?=_('Quantity')?></th>
+			<th><?=_('Subtotal')?></th>
 		</tr>
-		<tr>
-			<td>
-				<div class="cart-info">
-					<img src="/images/7-644803ea77d0a.png">
-					<div>
-						<p>Red Printed TShirt</p>
-						<small>Price: $50.00</small>
-						<br>
-						<a href="/Cart/remove">Remove</a>
-					</div>
-				</div>
-			</td>
-			<td><input type="number" name="" value="1" min="1" max="100"></td>
-			<td>$50.00</td>
-		</tr>
+		<?php
+		foreach ($data as $product) {
+			$this->view('Product/cartPartial', $product);
+		} ?>
 	</table>
 
 	<div class="total-price">
 		<table>
 			<tr>
-				<td>Subtotal</td>
+				<td><?=_('Subtotal')?></td>
 				<td>$200.00</td>
 			</tr>
 			<tr>
-				<td>Tax</td>
+				<td><?=_('Tax')?></td>
 				<td>$25.00</td>
 			</tr>
 			<tr>
-				<td>Subtotal</td>
+				<td><?=_('Total')?></td>
 				<td>$225.00</td>
 			</tr>
 		</table>
 	</div>
-
 </div>
 
 <?php $this->view('shared/footer'); ?>
