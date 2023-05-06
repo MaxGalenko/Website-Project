@@ -24,6 +24,12 @@
                 <button type="submit" class="btn btn-primary btn-block mb-3" name="action" value='Register' style="background-color: #324A5F;">Next</button>
                 <div style="color: #324A5F;">Already have an account? <a href="/User/index" style="color: #324A5F; text-decoration: underline;">Login.</a></div>
             </form>
+
+            <?php if(isset($_GET['error'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $_GET['error'] ?>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
