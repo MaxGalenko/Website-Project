@@ -21,22 +21,31 @@
 	</div> -->
 	<div class="card" style="width: 18rem;">
 	  <div class="image">
-			<?php if($data->image){ ?>
-				<img src="/images/<?= $data->image ?>" alt="Product Image" style="width: 80%">
-			<?php } else { ?>
-				<img alt="No image for this product" style="width: 80%">
-			<?php 
-		} ?>
-		</div>
+	    <?php if($data->image){ ?>
+	      <img src="/images/<?= $data->image ?>" alt="Product Image" style="width: 80%">
+	    <?php } else { ?>
+	      <img alt="No image for this product" style="width: 80%">
+	    <?php } ?>
+	  </div>
 	  <div class="card-body">
 	    <h5 class="card-title"><?= $data->title ?></h5>
 	    <p class="card-text"><?= $data->unit_price ?></p>
 	    <?php if ($data->discount_price != 0) { ?>
-				<p class="discount"><b><del><?= $data->discount_price ?></del></b></p>
-			<?php } ?>
+	      <p class="discount"><b><del><?= $data->discount_price ?></del></b></p>
+	    <?php } ?>
 	    <p class="card-text">Q: <?= $data->quantity ?></p>
-	    <a href="#" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF;">Add to Cart</a>
-	    <a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
+	    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
+	      <a href="/Product/edit/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Edit Product</a>
+	      <a href="/Product/delete/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Delete Product</a>
+	    <?php } else { ?>
+	      <a href="#" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
+	    <?php } ?>
+	    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
+
+	    <?php } else { ?>
+	      <a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
+	    <?php } ?>
 	  </div>
 	</div>
+
 </main>
