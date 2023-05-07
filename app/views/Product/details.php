@@ -13,7 +13,11 @@
                 <h1><?= $data->title ?></h1>
                 <p><b>Type:</b> <?= $data->type ?></p>
                 <p><b>Description:</b> <?= $data->description ?></p>
-                <p><b>Unit Price:</b> <?= $data->unit_price ?></p>
+                <?php if ($data->discount_price != 0) { ?>
+                <p class="card-text"><del>$<?= $data->unit_price ?><br></del>$<?= $data->discount_price ?></p>
+            <?php } else { ?>
+                <p class="card-text"><?= $data->unit_price ?></p>
+            <?php } ?>
                 <p><b>Quantity:</b> <?= $data->quantity ?></p>
 
             <br><a href="/Main/index" class="btn btn-secondary">Back</a>

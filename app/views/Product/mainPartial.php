@@ -30,7 +30,7 @@
 	    <div class="card-body">
 	        <h5 class="card-title"><?= $data->title ?></h5>
 	        <?php if ($data->discount_price != 0) { ?>
-	            <p class="card-text"><del><?= $data->unit_price ?></del> <?= $data->discount_price ?></p>
+	            <p class="card-text">$<del><?= $data->unit_price ?><br></del>$<?= $data->discount_price ?></p>
 	        <?php } else { ?>
 	            <p class="card-text"><?= $data->unit_price ?></p>
 	        <?php } ?>
