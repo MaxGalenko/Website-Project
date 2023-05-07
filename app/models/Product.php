@@ -59,7 +59,7 @@ class Product extends \app\core\Model {
 
 	//Creating products
 	public function create() {
-		$SQL = 'INSERT INTO product(title,type,description,image,unit_price,quantity) VALUE (:title, :type, :description, :image, :unit_price, :quantity)';
+		$SQL = 'INSERT INTO product(title,type,description,image,unit_price,discount_price,quantity) VALUE (:title, :type, :description, :image, :unit_price,:discount_price, :quantity)';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'title' => $this->title,
@@ -67,13 +67,14 @@ class Product extends \app\core\Model {
 			'description' => $this->description,
 			'image' => $this->image,
 			'unit_price' => $this->unit_price,
+			'discount_price' => $this->discount_price,
 			'quantity' => $this->quantity,
 		]);
 	}
 
 	//Update products
 	public function update() {
-		$SQL = 'UPDATE product SET title=:title, type=:type, description=:description, image=:image, unit_price=:unit_price, quantity=:quantity WHERE product_id=:product_id';
+		$SQL = 'UPDATE product SET title=:title, type=:type, description=:description, image=:image, unit_price=:unit_price,discount_price=:discount_price, quantity=:quantity WHERE product_id=:product_id';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'title' => $this->title,
@@ -82,6 +83,7 @@ class Product extends \app\core\Model {
 			'image' => $this->image,
 			'unit_price' => $this->unit_price,
 			'quantity' => $this->quantity,
+			'discount_price' => $this->discount_price,
 			'product_id' => $this->product_id,
 		]);
 	}

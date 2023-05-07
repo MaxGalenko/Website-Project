@@ -17,6 +17,7 @@ class Product extends \app\core\Controller {
         $product->type = $_POST['type'];
         $product->description = $_POST['description'];
         $product->unit_price = $_POST['unit_price'];
+        $product->discount_price = $_POST['discount_price'];
         $product->quantity = $_POST['quantity'];
         
         if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
@@ -39,6 +40,7 @@ class Product extends \app\core\Controller {
             $product->type = $_POST['type'];
             $product->description = $_POST['description'];
             $product->unit_price = $_POST['unit_price'];
+            $product->discount_price = $_POST['discount_price'];
             $product->quantity = $_POST['quantity'];
             if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
                 $newImage = $this->saveFile($_FILES['image'], $product_id);
