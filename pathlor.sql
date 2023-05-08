@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 09:04 PM
+-- Generation Time: May 08, 2023 at 05:10 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,6 +40,13 @@ CREATE TABLE `address` (
   `country` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`address_id`, `profile_id`, `street_address`, `postal_code`, `city`, `province`, `country`) VALUES
+(1, 6, '8022 champagneur', 'H3N2K4', 'Montreal', 'Quebec', 'Canada');
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +82,14 @@ CREATE TABLE `orders` (
   `order_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `order_date`) VALUES
+(1, 6, 1, 'In Progress', '2023-05-08 04:52:55'),
+(2, 6, 1, 'Completed', '2023-05-08 05:00:52');
+
 -- --------------------------------------------------------
 
 --
@@ -89,6 +104,14 @@ CREATE TABLE `order_details` (
   `quantity` int(11) NOT NULL,
   `unit_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `quantity`, `unit_price`) VALUES
+(1, 1, 12, 1, 1250.99),
+(3, 2, 10, 1, 1250.99);
 
 -- --------------------------------------------------------
 
@@ -152,6 +175,13 @@ CREATE TABLE `profile` (
   `phone_number` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profile_id`, `first_name`, `middle_name`, `last_name`, `email`, `phone_number`) VALUES
+(6, 'Ali', 'AR', 'Raza', 'ali@gmail.com', '123-456-7890');
+
 -- --------------------------------------------------------
 
 --
@@ -172,7 +202,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
 (4, 'A', '$2y$10$o36BXwd.ArZYo.P.Js9dIeF3PArTIHpDXvYnohn5C/QB8tx3nCKM6', 'admin'),
-(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer');
+(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer'),
+(6, 'Ali', '$2y$10$2VGY/VFYyJ8jZbcphSO/aO7f7NEatGttYRPbSiSX3m6zW/3Zq5mBS', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -240,7 +271,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `info`
@@ -252,13 +283,13 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -276,13 +307,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
