@@ -9,16 +9,18 @@
 			<h6 class="product_name"><?= $data->title ?></h6>
 			<p class="price"><b><?= $data->unit_price ?></b></p>
 			<?php if ($data->discount_price != 0) { ?>
-				<p class="discount"><b><del><?php $data->discount_price ?></del></b></p>
+				<p class="discount"><b><del><?= $data->unit_price ?></del></b></p>
+				<p class="discount_price"><b><?= $data->discount_price ?></b></p>
 			<?php } ?>
-			<p class="discount"><b><del><?php $data->discount_price ?></del></b></p>
 			<p class="quantity"><b>Q: <?= $data->quantity ?></b></p>
 		</div>
-		<form action="/Cart/add">
-			<button class="add">Add to cart</button>
+		<form action="/Cart/add" method="POST">
+			<input type="hidden" name="product_id" value="<?= $data->product_id ?>">
+			<button class="add" type="submit">Add to cart</button>
 		</form>
-		 <a href="/Product/details/<?= $data->product_id; ?>"><button>View details</button></a>
+		<a href="/Product/details/<?= $data->product_id; ?>"><button>View details</button></a>
 	</div> -->
+
 	<div class="card" style="width: 18rem;">
 	    <div class="image">
 	        <?php if($data->image){ ?>

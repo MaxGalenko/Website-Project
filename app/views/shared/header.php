@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['user_id'])) {?>
-                  <a class="nav-link" href="/Order/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-file-earmark' title="Orders"></i></a>
+                  <a class="nav-link" href="/Orders/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-file-earmark' title="Orders"></i></a>
                 <?php } ?>
         </li>
         <li class="nav-item">
