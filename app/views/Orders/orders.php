@@ -16,7 +16,7 @@
                     <p class="card-text">Order Date: <?= $order->order_date ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Details</a>
+                    <a href="/Orders/details/<?= $order->order_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
                 </div>
             </div>
         </div>
