@@ -7,9 +7,9 @@
 <!-- Show product list -->
 
 <form action="/Main/index" method="post">
-	<label for="filter">Filter</label>
 	<select name="filter" onchange="this.form.submit();" id="filter">
-    	<option value="default">Default</option>
+    	<option value="default">Filter</option>
+		<option value="ascending">Default</option>
     	<option value="ascending">Ascending</option>
     	<option value="descending">Descending</option>
   	</select>
