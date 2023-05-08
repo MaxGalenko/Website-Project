@@ -1,5 +1,5 @@
 .cart-page{
-	margin: 80px;
+	margin: 60px;
 }
 
 table{
@@ -22,12 +22,6 @@ th{
 
 td{
 	padding: 10px 5px;
-}
-
-td input{
-	width: 60px;
-	height: 30px;
-	padding: 5px;
 }
 
 td a{
