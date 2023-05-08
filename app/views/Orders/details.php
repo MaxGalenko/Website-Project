@@ -67,7 +67,7 @@
                 </tbody>
             </table>
     </div>
-    <h1>Order Details</h1>
+    <h1>Order Items</h1>
     <table class="table">
         <thead>
             <tr>
@@ -80,7 +80,7 @@
         <tbody>
             <?php foreach ($data as $detail): ?>
                 <tr>
-                    <td><?= $detail->title ?> <br> <img src="/images/<?= $detail->image ?>" width="25%"></td>
+                    <td><?= $detail->title ?> <br> <img src="/images/<?= $detail->image ?>" alt="No Image" width="25%"></td>
 
                     <td><?= $detail->quantity ?></td>
                     <td><?= $detail->unit_price ?></td>

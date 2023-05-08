@@ -24,7 +24,7 @@
 	<div class="card" style="width: 18rem;">
 	    <div class="image">
 	        <?php if($data->image){ ?>
-	            <img src="/images/<?= $data->image ?>" alt="Product Image" style="width: 80%">
+	            <img src="/images/<?= $data->image ?>" alt="No image for this product" style="width: 80%">
 	        <?php } else { ?>
 	            <img alt="No image for this product" style="width: 80%">
 	        <?php } ?>
