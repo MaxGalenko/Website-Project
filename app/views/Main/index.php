@@ -4,8 +4,6 @@
 
 <h1 style="text-align: center;">Products</h1>
 
-
-
 <!-- Show product list -->
 <div class="row row-cols-1 row-cols-md-5">
 <?php

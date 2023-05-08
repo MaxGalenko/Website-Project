@@ -3,7 +3,6 @@
 namespace app\models;
 
 class Orders extends \app\core\Model {
-
     public $order_id;
     public $title;
     public $status;
@@ -11,7 +10,6 @@ class Orders extends \app\core\Model {
     public $order_date;
 
     public static function getAllOrders() {
-
         $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
                 JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id';
         $STH = self::$connection->prepare($SQL);
@@ -27,4 +25,3 @@ class Orders extends \app\core\Model {
         return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
     }
 }
-

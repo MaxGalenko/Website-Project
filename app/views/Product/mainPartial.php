@@ -41,7 +41,7 @@
 	            <a href="/Product/edit/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Edit Product</a>
 	            <a href="/Product/delete/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Delete Product</a>
 	        <?php } else { ?>
-	            <a href="#" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
+	            <a href="/Cart/addToCart" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
 	        <?php } ?>
 	        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
 

@@ -3,7 +3,6 @@
 namespace app\models;
 
 class Product extends \app\core\Model {
-
 	public $product_id;
 	public $title;
 	public $type;

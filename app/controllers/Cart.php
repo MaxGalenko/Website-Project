@@ -6,11 +6,12 @@ class Cart extends \app\core\Controller{
 		$this->view('Cart/index');
 	}
 
-	public function add(){
+	public function addToCart($product_id){
+		$add = new \app\models\Cart();
 
 	}
 
-	public function remove(){
+	public function removeFromCart(){
 		
 	}
 }

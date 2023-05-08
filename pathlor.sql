@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 04:31 PM
+-- Generation Time: May 08, 2023 at 05:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -79,7 +79,7 @@ CREATE TABLE `orders` (
   `profile_id` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `total_price` double NOT NULL,
+  `total_price` decimal(6,2) NOT NULL,
   `order_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,7 +88,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `total_price`, `order_date`) VALUES
-(1, 5, 1, 'In cart', 0, NULL);
+(1, 5, 1, 'In cart', '0.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `order_details` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `unit_price` double NOT NULL
+  `unit_price` decimal(6,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -110,8 +110,8 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `quantity`, `unit_price`) VALUES
-(1, 1, 12, 1, 1250.99),
-(3, 2, 10, 1, 1250.99);
+(1, 1, 12, 1, '1250.99'),
+(3, 2, 10, 1, '1250.99');
 
 -- --------------------------------------------------------
 
@@ -143,8 +143,8 @@ CREATE TABLE `product` (
   `type` varchar(20) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(128) DEFAULT NULL,
-  `unit_price` double NOT NULL,
-  `discount_price` double NOT NULL,
+  `unit_price` decimal(6,2) NOT NULL,
+  `discount_price` decimal(6,2) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -153,11 +153,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`, `discount_price`, `quantity`) VALUES
-(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', 209.99, 150.99, 10),
-(9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, 199.99, 0, 5),
-(10, 'Home Laptop', 'Laptop', 'This is a home laptop', '-64505bcd40bc7.jpg', 500.99, 0, 2),
-(11, 'Home Desktop', 'Desktop', 'This is a home desktop', '-64506057e4a5e.jpg', 2200.99, 0, 1),
-(12, 'Gaming PC', 'Desktop', 'This is a gaming PC', '-6450609a19a48.jpg', 1250.99, 0, 4);
+(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', '209.99', '150.99', 10),
+(9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, '199.99', '0.00', 5),
+(10, 'Home Laptop', 'Laptop', 'This is a home laptop', '-64505bcd40bc7.jpg', '500.99', '0.00', 2),
+(11, 'Home Desktop', 'Desktop', 'This is a home desktop', '-64506057e4a5e.jpg', '2200.99', '0.00', 1),
+(12, 'Gaming PC', 'Desktop', 'This is a gaming PC', '-6450609a19a48.jpg', '1250.99', '0.00', 4);
 
 -- --------------------------------------------------------
 
