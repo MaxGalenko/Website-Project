@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 05:10 AM
+-- Generation Time: May 08, 2023 at 04:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `profile_id`, `street_address`, `postal_code`, `city`, `province`, `country`) VALUES
-(1, 6, '8022 champagneur', 'H3N2K4', 'Montreal', 'Quebec', 'Canada');
+(1, 5, '4750 Avenue Saint-Kevin', 'H4L 3X9', 'Montreal', 'Qc', 'Canada');
 
 -- --------------------------------------------------------
 
@@ -79,16 +79,16 @@ CREATE TABLE `orders` (
   `profile_id` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `order_date` datetime NOT NULL
+  `total_price` double NOT NULL,
+  `order_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `order_date`) VALUES
-(1, 6, 1, 'In Progress', '2023-05-08 04:52:55'),
-(2, 6, 1, 'Completed', '2023-05-08 05:00:52');
+INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `total_price`, `order_date`) VALUES
+(1, 5, 1, 'In cart', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`profile_id`, `first_name`, `middle_name`, `last_name`, `email`, `phone_number`) VALUES
-(6, 'Ali', 'AR', 'Raza', 'ali@gmail.com', '123-456-7890');
+(5, 'Maxym', '', 'Galenko', 'maxym@gmail.com', '(514) 294-2667');
 
 -- --------------------------------------------------------
 
@@ -202,8 +202,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
 (4, 'A', '$2y$10$o36BXwd.ArZYo.P.Js9dIeF3PArTIHpDXvYnohn5C/QB8tx3nCKM6', 'admin'),
-(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer'),
-(6, 'Ali', '$2y$10$2VGY/VFYyJ8jZbcphSO/aO7f7NEatGttYRPbSiSX3m6zW/3Zq5mBS', 'customer');
+(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -331,19 +330,6 @@ ALTER TABLE `address`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_to_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`),
   ADD CONSTRAINT `orders_to_profile` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`);
-
---
--- Constraints for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_to_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `order_details_to_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_to_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `profile`
