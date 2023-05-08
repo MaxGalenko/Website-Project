@@ -8,6 +8,7 @@ class Orders extends \app\core\Model {
     public $status;
     public $quantity;
     public $order_date;
+    public $image;
 
     //for fetching profile and address info for orders details
     public $profile_id;
@@ -34,7 +35,7 @@ class Orders extends \app\core\Model {
     }
 
     public static function getOrderDetails($order_id) {
-	    $SQL = 'SELECT o.order_id, o.order_date, o.status, oi.quantity, oi.unit_price, p.title,
+	    $SQL = 'SELECT o.order_id, o.order_date, o.status, oi.quantity, oi.unit_price, p.title, p.image,
 	            pr.profile_id, pr.first_name, pr.middle_name, pr.last_name, pr.email, pr.phone_number,
 	            a.address_id, a.street_address, a.postal_code, a.city, a.province, a.country
 	            FROM orders o
