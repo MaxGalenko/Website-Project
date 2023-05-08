@@ -12,7 +12,7 @@ class Orders extends \app\core\Model {
 
     public static function getAllOrders() {
 
-        $SQL = 'SELECT o.order_id, o.status, p.title, oi.quantity, oi.unit_price FROM orders o
+        $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
                 JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id';
         $STH = self::$connection->prepare($SQL);
         $STH->execute();
