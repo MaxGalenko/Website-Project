@@ -49,4 +49,10 @@ class Orders extends \app\core\Model {
 	    return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
 	}
 
+	public function updateStatus($status) {
+	    $SQL = 'UPDATE orders SET status = :status WHERE order_id = :order_id';
+	    $STH = self::$connection->prepare($SQL);
+	    $STH->execute(['status' => $status, 'order_id' => $this->order_id]);
+	}
+
 }
