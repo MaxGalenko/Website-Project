@@ -10,7 +10,7 @@ class Cart extends \app\core\Controller{
 
 	public function addToCart($product_id){
 		$add = new \app\models\Cart();
-		$add = $add->
+		// $add = $add->
 	}
 
 	public function removeFromCart($product_id){
