@@ -17,7 +17,7 @@
                 <td><?= $order->status ?></td>
                 <td><?= $order->title ?></td>
                 <td><?= $order->quantity ?></td>
-                <td><?= $order->total_price ?></td>
+                <td><?= $order->unit_price ?></td>
             </tr>
         <?php endforeach ?>
     </tbody>
