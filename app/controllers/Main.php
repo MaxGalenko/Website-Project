@@ -3,9 +3,22 @@ namespace app\controllers;
 
 class Main extends \app\core\Controller{
 
-	public function index(){
+	public function index() {
 		$product = new \app\models\Product();
-		$products = $product->getAllPriceDescending();
+		$selected_val = $_POST['filter'];  // Storing Selected Value In Variable
+
+		switch ($selected_val) {
+			case 'ascending':
+				$products = $product->getAllPriceAscending();
+				break;
+			case 'descending':
+				$products = $product->getAllPriceDescending();
+				break;
+			default:
+				$products = $product->getAll();
+				break;
+		}
+
 		$this->view('Main/index', $products);
 	}
 
