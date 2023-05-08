@@ -70,7 +70,6 @@ class Profile extends \app\core\Model{
 	{
 		$SQL = 'INSERT INTO profile(profile_id, first_name, middle_name, last_name, email, phone_number) VALUES (:profile_id, :first_name, :middle_name, :last_name, :email, :phone_number)';
 	    $STH = self::$connection->prepare($SQL);
-
 	    $STH->execute([
 						'profile_id' =>$this->profile_id,
 						'first_name'=>$this->first_name,
@@ -88,7 +87,6 @@ class Profile extends \app\core\Model{
 	{
 		$SQL = 'INSERT INTO address(profile_id, street_address, postal_code, city, province, country) VALUES (:profile_id, :street_address, :postal_code, :city, :province, :country)';
 	    $STH = self::$connection->prepare($SQL);
-
 	    $STH->execute([
 						'profile_id' =>$this->profile_id,
 						'street_address'=>$this->street_address,

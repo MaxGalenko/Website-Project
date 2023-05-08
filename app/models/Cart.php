@@ -14,10 +14,18 @@ class Cart extends \app\core\Model{
 	public $quantity;
 	public $unit_price;
 
-	public function getAllCartProducts(){
-		$SQL = 'SELECT o.* FROM orders o JOIN order_details od ON o.order_id = od.order_id JOIN product p ON oi.product_id = p.product_id';
+	public $title;
+	public $type;
+	public $description;
+	public $image;
+
+
+	public static function getAllCartProducts($profile_id){
+		$SQL = 'SELECT p.title, p.image, p.unit_price, p.discount_price FROM orders o JOIN order_details od ON o.order_id = od.order_id 
+				JOIN product p ON od.product_id = p.product_id WHERE o.order_id = od.order_id AND o.profile_id = :profile_id 
+				AND o.status = "in cart"';
         $STH = self::$connection->prepare($SQL);
-        $STH->execute();
+        $STH->execute(['profile_id'=>$profile_id]);
         return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Cart');
 	}
 
@@ -25,11 +33,15 @@ class Cart extends \app\core\Model{
 
 	}
 
-	public function removeFromCart(){
+	public function removeFromCart($product_id){
 
 	}
 
 	public function updateQuantity(){
+
+	}
+
+	public function checkForCart($profile_id){
 
 	}
 }

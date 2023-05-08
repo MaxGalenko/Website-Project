@@ -1,9 +1,7 @@
 <?php
-
 namespace app\controllers;
 
 class Product extends \app\core\Controller {
-
     public function index() {
         $productModel = new \app\models\Product();
         $products = $productModel->getAll();
@@ -11,26 +9,25 @@ class Product extends \app\core\Controller {
     }
 
     public function create() {
-    if (isset($_POST['action'])) {
-        $product = new \app\models\Product();
-        $product->title = $_POST['title'];
-        $product->type = $_POST['type'];
-        $product->description = $_POST['description'];
-        $product->unit_price = $_POST['unit_price'];
-        $product->discount_price = $_POST['discount_price'];
-        $product->quantity = $_POST['quantity'];
-        
-        if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-            $product->image = $this->saveFile($_FILES['image'], $product->product_id);
+        if (isset($_POST['action'])) {
+            $product = new \app\models\Product();
+            $product->title = $_POST['title'];
+            $product->type = $_POST['type'];
+            $product->description = $_POST['description'];
+            $product->unit_price = $_POST['unit_price'];
+            $product->discount_price = $_POST['discount_price'];
+            $product->quantity = $_POST['quantity'];
+            
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+                $product->image = $this->saveFile($_FILES['image'], $product->product_id);
+            }
+            
+            $product->create();
+            header('location:/Main/index');
+        } else {
+            $this->view('Product/create');
         }
-        
-        $product->create();
-        header('location:/Main/index');
-    } else {
-        $this->view('Product/create');
     }
-}
-
 
     public function edit($product_id) {
         $productModel = new \app\models\Product();
@@ -76,7 +73,6 @@ class Product extends \app\core\Controller {
     $this->view('Product/details', $product);
     }
 
-
     public function saveFile($file, $product_id) {
         $path = './images/';
         $allowedTypes = ["jpg", "png", "gif"];
@@ -99,5 +95,3 @@ class Product extends \app\core\Controller {
         }
     }
 }
-
-

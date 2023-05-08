@@ -34,7 +34,7 @@
 	        <?php if ($data->discount_price != 0) { ?>
 	            <p class="card-text">$<del><?= $data->unit_price ?><br></del>$<?= $data->discount_price ?></p>
 	        <?php } else { ?>
-	            <p class="card-text"><?= $data->unit_price ?></p>
+	            <p class="card-text">$<?= $data->unit_price ?></p>
 	        <?php } ?>
 	        <p class="card-text">Q: <?= $data->quantity ?></p>
 	        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>

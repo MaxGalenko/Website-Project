@@ -81,14 +81,12 @@ class Profile extends \app\core\Controller{
 	}
 
 	// Views a form showing the personal information
-	public function registerPersonalInformation()
-	{
+	public function registerPersonalInformation(){
 		$this->view('Profile/registerPers');
 	}
 
 	// Views a form showing the address information
-	public function registerAddressInformation()
-	{
+	public function registerAddressInformation(){
 		$this->view('Profile/registerAddr');
 	}
 
@@ -114,23 +112,23 @@ class Profile extends \app\core\Controller{
 	}
 
 		// insert the information regarding the user into the database
-		public function registerAddress(){
-			$user = new \app\models\Profile();
-			
-			if(isset($_POST['action'])){
-				//process the input
-				$user->profile_id = $user->getProfileID()->user_id;
-				$user->street_address = $_POST['street_address'];
-				$user->postal_code = $_POST['postal_code'];
-				$user->city = $_POST['city'];
-				$user->province = $_POST['province'];
-				$user->country = $_POST['country'];
-				$user->createAddress();	//Get the latest insert from the user
-	
-				header('location:/User/index');
-			}else{
-				//display the form
-				$this->view('Profile/registerAddressInformation');//TODO: add the new view file
-			}
+	public function registerAddress(){
+		$user = new \app\models\Profile();
+		
+		if(isset($_POST['action'])){
+			//process the input
+			$user->profile_id = $user->getProfileID()->user_id;
+			$user->street_address = $_POST['street_address'];
+			$user->postal_code = $_POST['postal_code'];
+			$user->city = $_POST['city'];
+			$user->province = $_POST['province'];
+			$user->country = $_POST['country'];
+			$user->createAddress();	//Get the latest insert from the user
+
+			header('location:/User/index');
+		}else{
+			//display the form
+			$this->view('Profile/registerAddressInformation');//TODO: add the new view file
 		}
+	}
 }

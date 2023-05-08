@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 05:50 PM
+-- Generation Time: May 08, 2023 at 11:33 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -111,7 +111,9 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `quantity`, `unit_price`) VALUES
 (1, 1, 12, 1, '1250.99'),
-(3, 2, 10, 1, '1250.99');
+(2, 1, 11, 1, '200.99'),
+(3, 2, 10, 1, '1250.99'),
+(4, 1, 9, 1, '0.00');
 
 -- --------------------------------------------------------
 
@@ -288,7 +290,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `payment`

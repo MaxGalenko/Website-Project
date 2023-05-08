@@ -1,15 +1,15 @@
 <tr>
 	<td>
 		<div class="cart-info">
-			<img src="/images/7-644803ea77d0a.png">
+			<img src="/images/<?= $data->image ?>">
 			<div>
-				<p>Red Printed TShirt</p>
-				<small>Price: $50.00</small>
+				<p><?= $data->title ?></p>
+				<small>Price: $<?= $data->unit_price ?></small>
 				<br>
 				<a href="/Cart/remove"><?=_('Remove')?></a>
 			</div>
 		</div>
 	</td>
 	<td><input type="number" value="1" min="1" max="100" onkeydown="return false"></td>
-	<td>$50.00</td>
+	<td>$<?= $data->unit_price ?></td>
 </tr>

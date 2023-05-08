@@ -1,5 +1,4 @@
 <?php
-
 namespace app\models;
 
 class Product extends \app\core\Model {
