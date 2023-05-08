@@ -5,9 +5,19 @@ class Main extends \app\core\Controller{
 
 	public function index() {
 		$product = new \app\models\Product();
-		$selected_val = $_POST['filter'];  // Storing Selected Value In Variable
+
+		if(!isset($_POST['filter'])) {
+			$selected_val = "default";
+		} else {
+			$selected_val = $_POST['filter'];			
+		}
+		
+		// Storing Selected Value In Variable
 
 		switch ($selected_val) {
+			case 'default':
+				$products = $product->getAll();
+				break;
 			case 'ascending':
 				$products = $product->getAllPriceAscending();
 				break;
