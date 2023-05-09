@@ -84,7 +84,7 @@
 
                     <td><?= $detail->quantity ?></td>
                     <td><?= $detail->unit_price ?></td>
-                    <td><?= $detail->quantity * $detail->unit_price * 1.15?></td>
+                    <td><?= $detail->total_price ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
