@@ -13,7 +13,7 @@ class User extends \app\core\Controller{
 					//the user is correct!
 					$_SESSION['user_id'] = $user->user_id;
 					$_SESSION['role'] = $user->role;
-					header('location:/Main/index');
+					header('location:/User/setup2fa');
 				}else{
 					header('location:/User/index?error=Bad username/password combination');
 				}
@@ -80,21 +80,21 @@ class User extends \app\core\Controller{
 		if(isset($_POST['action'])){         
 			$currentcode = $_POST['currentCode'];         
 			if(\app\core\TokenAuth6238::verify($_SESSION['secretkey'],$currentcode)){ 
-					//the user has verified their proper 2-factor authentication setup             
-					$user = new \app\models\User();             
-					$user->user_id = $_SESSION['user_id'];             
-					$user->secret_key = $_SESSION['secretkey'];             $
-					user->update2fa();             
-					header('location:/Somewhere***');         
-				}else{             
-					header('location:/User/setup2fa?error=token not verified!');
-					//reload         
-				}     
-			}else{         
-				$secretkey = \app\core\TokenAuth6238::generateRandomClue();         
-				$_SESSION['secretkey'] = $secretkey;         
-				$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['username'], 'Awesome.com', $secretkey, 'Awesome App');         
-				$this->view('User/twofasetup', $url);     
-			} 
+				//the user has verified their proper 2-factor authentication setup             
+				$user = new \app\models\User();             
+				$user->user_id = $_SESSION['user_id'];             
+				$user->secret_key = $_SESSION['secretkey'];       
+				// $user->update2fa();             
+				header('location:/Main/index');         
+			}else{             
+				header('location:/User/setup2fa?error=token not verified!');
+				//reload         
+			}     
+		}else{         
+			$secretkey = \app\core\TokenAuth6238::generateRandomClue();         
+			$_SESSION['secretkey'] = $secretkey;         
+			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'Awesome.com', $secretkey, 'Awesome App');         
+			$this->view('User/twofasetup', $url);     
+		} 
 	} 
 }
