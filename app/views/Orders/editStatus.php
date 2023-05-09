@@ -76,28 +76,6 @@
                 </tbody>
             </table>
     </div>
-    <!-- <h1>Order Items</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product Title</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Total Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data as $detail): ?>
-                <tr>
-                    <td><?= $detail->title ?> <br> <img src="/images/<?= $detail->image ?>" alt="No Image" width="25%"></td>
-
-                    <td><?= $detail->quantity ?></td>
-                    <td><?= $detail->unit_price ?></td>
-                    <td><?= $detail->quantity * $detail->unit_price ?></td>
-                </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table> -->
     <a href="/Orders/orders" class="btn btn-secondary">Back</a>
 </div>
 
