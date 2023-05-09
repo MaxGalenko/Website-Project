@@ -6,9 +6,11 @@ class Orders extends \app\core\Controller {
     public function index()
     {
         $orders = new \app\models\Orders();
-        $orders = $orders->getAllOrders();
+        $user_id = $_SESSION['user_id'];
+        $orders = $orders->getAllOrders($user_id);
         $this->view('Orders/orders', $orders);
     }
+
 
     public function details($order_id)
     {

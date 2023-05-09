@@ -9,23 +9,29 @@ class Orders extends \app\core\Model {
     public $quantity;
     public $order_date;
 
-    public static function getAllOrders() {
+    public static function getAllOrders($user_id) {
+    if ($_SESSION['role'] === 'admin') {
         $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
-               JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id';
+                JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id';
         $STH = self::$connection->prepare($SQL);
         $STH->execute();
-        return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
+    } else {
+        $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
+                JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id
+                WHERE o.profile_id = :user_id';
+        $STH = self::$connection->prepare($SQL);
+        $STH->execute(['user_id' => $user_id]);
+        }
+    return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
     }
-
     public static function getOrder($order_id) {
-    	$SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
+        $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
                 JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id WHERE o.order_id = :order_id';
         $STH = self::$connection->prepare($SQL);
         $STH->execute(['order_id' => $order_id]);
         $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Orders');
-    	return $STH->fetch();
+        return $STH->fetch();
     }
-
     public static function getOrderDetails($order_id) {
 
     $SQL = 'SELECT o.order_id, o.order_date, o.status, oi.quantity, oi.unit_price, p.title, p.image,
