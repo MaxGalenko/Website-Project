@@ -9,11 +9,14 @@ class Cart extends \app\core\Controller{
 	}
 
 	public function addToCart($product_id){
-		$add = new \app\models\Cart();
-		// $add = $add->
+		$item = new \app\models\Cart();
+		$item = $item->addToCart();
 	}
 
-	public function removeFromCart($product_id){
-		
+	public function removeFromCart($order_details_id){
+		$item = new \app\models\Cart();
+		$item = $item->find($order_details_id);
+		$item->removeFromCart();
+		header('location:/Cart/index');
 	}
 }

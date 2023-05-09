@@ -26,7 +26,7 @@ $total = 0;
 							<p><?= $product->title ?></p>
 							<small>Price: $<?= $product->unit_price ?></small>
 							<br>
-							<a href="/Cart/remove"><?=_('Remove')?></a>
+							<a href="/Cart/removeFromCart/<?= $product->order_details_id ?>"><?=_('Remove')?></a>
 						</div>
 					</div>
 				</td>

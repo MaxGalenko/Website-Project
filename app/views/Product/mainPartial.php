@@ -43,11 +43,7 @@
 	        <?php } else { ?>
 	            <a href="/Cart/addToCart" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
 	        <?php } ?>
-	        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
-
-	        <?php } else { ?>
-	            <a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
-	        <?php } ?>
+			<a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
 	    </div>
 	</div>
 
