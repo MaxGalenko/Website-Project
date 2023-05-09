@@ -20,14 +20,13 @@ class Orders extends \app\core\Controller {
     public function editStatus($order_id)
     {
         $order = new \app\models\Orders();
-        $order = $order->getOrderDetails($order_id);
+        $order = $order->getOrder($order_id);
 
         if(isset($_POST['status'])){
-            $order->status = $_POST['status'];
-            $order->updateStatus($order_id, $status);
-            header('location:/Orders/orders');
-        }
-
+        $order->status = $_POST['status'];
+        $order->updateStatus($_POST['status']);
+        header('location:/Orders/orders');
+    }
         $this->view('Orders/editStatus', $order);
     }
 

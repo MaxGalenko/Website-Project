@@ -67,7 +67,7 @@
                 </tbody>
             </table>
     </div>
-    <h1>Order Items</h1>
+    <h1>Ordered Items</h1>
     <table class="table">
         <thead>
             <tr>

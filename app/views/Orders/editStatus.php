@@ -9,18 +9,18 @@
                 <tbody>
                     <tr>
                         <td><strong>Order ID:</strong></td>
-                        <td><?= $data[0]->order_id; ?></td>
+                        <td><?= $data->order_id; ?></td>
                     </tr>
                     <tr>
                         <td><strong>Order Date:</strong></td>
-                        <td><?= $data[0]->order_date ?></td>
+                        <td><?= $data->order_date ?></td>
                     </tr>
                     <tr>
                         <td><strong>Status:</strong></td>
                         <td>
-                            <form action="/Orders/updateStatus/<?= $data[0]->order_id ?>" method="POST">
+                            <form action="/Orders/editStatus/<?= $data->order_id ?>" method="POST">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="status" value="<?= $data[0]->status ?>">
+                                    <input type="text" class="form-control" name="status" value="<?= $data->status ?>">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="submit">Save changes</button>
                                     </div>
@@ -37,7 +37,7 @@
                 <tbody>
                     <tr>
                         <td><strong>Name:</strong></td>
-                        <td><?= $data[0]->first_name ?> <?= $data[0]->last_name ?></td>
+                        <td><?= $data->first_name ?> <?= $data->last_name ?></td>
                     </tr>
                     <tr>
                         <td><strong>Email:</strong></td>
