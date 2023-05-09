@@ -17,7 +17,7 @@ class Orders extends \app\core\Controller {
         $this->view('Orders/details', $order);
     }
 
-    public function updateStatus($order_id)
+    public function editStatus($order_id)
     {
         $order = new \app\models\Orders();
         $order = $order->getOrderDetails($order_id);
