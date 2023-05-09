@@ -7,11 +7,14 @@
 <!-- Show product list -->
 
 <form action="/Main/index" method="post">
-	<select name="filter" onchange="this.form.submit();" id="filter">
-    	<option value="default">Filter</option>
-		<option value="ascending">Default</option>
-    	<option value="ascending">Ascending</option>
-    	<option value="descending">Descending</option>
+	<label for="color">Filter:</label>
+	<select name="filter" onchange="this.form.submit();" id="filter" aria-label="Filtering">
+    	<option value="chooseFilter">-Choose Filter-</option>
+		<option value="default">Default</option>
+    	<option value="ascendingP">Price Ascending</option>
+    	<option value="descendingP">Price Descending</option>
+		<option value="ascendingT">Title Ascending</option>
+    	<option value="descendingT">Title Descending</option>
   	</select>
 </form>
 
