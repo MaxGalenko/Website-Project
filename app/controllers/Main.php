@@ -5,7 +5,7 @@ class Main extends \app\core\Controller{
 
 	public function index() {
 		$product = new \app\models\Product();
-
+		$_SESSION['uri'] = '/Main/index';
 		if(!isset($_POST['filter'])) {
 			$selected_val = "default";
 		} else {

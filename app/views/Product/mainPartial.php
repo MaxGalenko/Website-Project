@@ -1,4 +1,4 @@
-<main>
+
 <!-- 	<div class="card">
 		<div class="image">
 			<?php if($data->image){ ?>
@@ -20,7 +20,7 @@
 		</form>
 		<a href="/Product/details/<?= $data->product_id; ?>"><button>View details</button></a>
 	</div> -->
-
+<main>
 	<div class="card" style="width: 18rem;">
 	    <div class="image">
 	        <?php if($data->image){ ?>
@@ -46,6 +46,4 @@
 			<a href="/Product/details/<?= $data->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
 	    </div>
 	</div>
-
-
 </main>
