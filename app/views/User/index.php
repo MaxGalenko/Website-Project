@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3" name="action" value='Login' style="background-color: #324A5F;">Login</button>
-                <div style="color: #324A5F;">Don't already have an account? <a href="/User/register" style="color: #324A5F; text-decoration: underline;">Register.</a></div>
+                <div style="color: #324A5F;">Don't already have an account? <a href="/User/register" style="color: #324A5F; text-decoration: underline;" name="register">Register.</a></div>
             </form>
 
             <?php if(isset($_GET['error'])): ?>

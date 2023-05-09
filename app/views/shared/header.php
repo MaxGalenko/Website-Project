@@ -21,7 +21,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <?php if(!isset($_SESSION['user_id'])) {?>
-                  <a class="nav-link" href="/User/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-closed' title="Log in"></i></a>
+                  <a class="nav-link" href="/User/index"><i style="font-size: 2rem; color: #FFFFFF; " name="log_in" class='bi-door-closed' title="Log in"></i></a>
                 <?php } else { ?>
                   <a class="nav-link" href="/User/logout"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-open' title='Log out'></i></a>
                 <?php }
