@@ -33,15 +33,10 @@ class Orders extends \app\core\Model {
 	    return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
 	}
 
-	public function updateStatus($status, $order_id) {
+	public function updateStatus($status) {
 	    $SQL = 'UPDATE orders SET status = :status WHERE order_id = :order_id';
 	    $STH = self::$connection->prepare($SQL);
-	    $STH->execute(['status' => $status, 'order_id' => $order_id]);
+	    $STH->execute(['order_id' => $order_id, 'status' => $status]);
+	}
 
-        $SQL = 'SELECT oi.quantity, p.title, p.unit_price, oi.unit_price FROM order_details oi
-                JOIN product p ON oi.product_id = p.product_id WHERE oi.order_id = :order_id';
-        $STH = self::$connection->prepare($SQL);
-        $STH->execute(['order_id' => $order_id]);
-        return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
-    }
 }

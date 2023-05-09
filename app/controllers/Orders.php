@@ -24,9 +24,11 @@ class Orders extends \app\core\Controller {
 
         if(isset($_POST['status'])){
             $order->status = $_POST['status'];
-            $order->updateStatus($order->status);
+            $order->updateStatus($order_id, $status);
+            header('location:/Orders/orders');
         }
 
         $this->view('Orders/editStatus', $order);
     }
+
 }
