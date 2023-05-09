@@ -9,7 +9,7 @@ Feature: Search for Products
 		When I click "search"
 		Then I see "Gaming PC"
 
-	Scenario: try searching 
+	Scenario: try searching for something that doesn't exist
 		Given I am on "http://localhost/Main/index" page
 		And I input "Banana" in "search_term"
 		When I click "search"

@@ -4,6 +4,6 @@ Feature: View Profile
 	I want to be able to view profile
 
 	Scenario: Viewing the profile
-		Given I am logged into the system
+		Given I am on "http://localhost/"
 		When I click on "Profile" on the "Menu"
 		Then I see my "Profile"
