@@ -17,12 +17,16 @@ class Orders extends \app\core\Controller {
         $this->view('Orders/details', $order);
     }
 
-    public function updateStatus($status, $order_id)
+    public function updateStatus($order_id)
     {
         $order = new \app\models\Orders();
-        $order->order_id = $order_id;
-        $order->updateStatus($status);
-        $this->view('Orders/editStatus', $order_id);
-    }
+        $order = $order->getOrderDetails($order_id);
 
+        if(isset($_POST['status'])){
+            $order->status = $_POST['status'];
+            $order->updateStatus($order->status);
+        }
+
+        $this->view('Orders/editStatus', $order);
+    }
 }

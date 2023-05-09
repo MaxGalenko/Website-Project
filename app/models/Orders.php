@@ -9,8 +9,7 @@ class Orders extends \app\core\Model {
     public $quantity;
     public $order_date;
     public $image;
-
-    //for fetching profile and address info for orders details
+    
     public $profile_id;
 	public $first_name;
     public $middle_name;
