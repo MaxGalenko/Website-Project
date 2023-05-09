@@ -34,7 +34,7 @@
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer') {?>
-                  <a class="nav-link" href="/Profile/index"><i style="font-size: 2.2rem; color: #FFFFFF; " class='bi bi-person-lines-fill' title="Profile"></i></a>
+                  <a class="nav-link" href="/Profile/index"><i style="font-size: 2.2rem; color: #FFFFFF; " class='bi bi-person-lines-fill' title="Profile" id="profileStuff"></i></a>
                 <?php } ?>
         </li>
         <li class="nav-item">
