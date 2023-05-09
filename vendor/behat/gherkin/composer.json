@@ -21,6 +21,7 @@
         "symfony/yaml": "~3|~4|~5",
         "phpunit/phpunit": "~8|~9",
         "cucumber/cucumber": "dev-gherkin-22.0.0"
+
     },
 
     "suggest": {
