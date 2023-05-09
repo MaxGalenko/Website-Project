@@ -18,11 +18,17 @@ class Main extends \app\core\Controller{
 			case 'default':
 				$products = $product->getAll();
 				break;
-			case 'ascending':
+			case 'ascendingP':
 				$products = $product->getAllPriceAscending();
 				break;
-			case 'descending':
+			case 'descendingP':
 				$products = $product->getAllPriceDescending();
+				break;
+			case 'ascendingT':
+				$products = $product->getAllTitleAscending();
+				break;
+			case 'descendingT':
+				$products = $product->getAllTitleDescending();
 				break;
 			default:
 				$products = $product->getAll();

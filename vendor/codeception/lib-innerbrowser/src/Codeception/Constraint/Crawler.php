@@ -42,7 +42,7 @@ class Crawler extends Page
      * @param string $selector
      * @param ComparisonFailure|null $comparisonFailure
      */
-    protected function fail($nodes, $selector, ComparisonFailure $comparisonFailure = null): never
+    protected function fail($nodes, $selector, ComparisonFailure $comparisonFailure = null): void
     {
         if (!$nodes->count()) {
             throw new ElementNotFound($selector, 'Element located either by name, CSS or XPath');
