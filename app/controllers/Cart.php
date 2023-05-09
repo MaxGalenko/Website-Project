@@ -9,8 +9,17 @@ class Cart extends \app\core\Controller{
 	}
 
 	public function addToCart($product_id){
-		$item = new \app\models\Cart();
-		$item = $item->addToCart();
+		$cart = new \app\models\Cart();
+		if($cart->findUserCart($_SESSION['user_id']) == null){
+			$cart->profile_id = $_SESSION['user_id'];
+			$cart->address_id = $cart->getAddress($_SESSION['user_id']);
+			$cart->status = 'In cart';
+			$cart->order_id = $cart->createCart();
+		}
+		$newItem = new \app\models\Cart();
+		$newItem->order_id = $cart->order_id;
+		$newItem->product_id = $product_id;
+		$newItem->addToCart();
 	}
 
 	public function removeFromCart($order_details_id){
