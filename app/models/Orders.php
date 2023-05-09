@@ -29,7 +29,7 @@ class Orders extends \app\core\Model {
 
 	public static function getAllOrders($user_id) {
 	    if ($_SESSION['role'] === 'admin') {
-	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity, SUM(oi.unit_price * oi.quantity) as total_price
+	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity, oi.unit_price
 	                FROM orders o
 	                JOIN order_details oi ON o.order_id = oi.order_id 
 	                JOIN product p ON oi.product_id = p.product_id 
