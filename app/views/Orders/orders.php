@@ -15,7 +15,7 @@
                     <h6 class="card-subtitle mb-2 text-muted"><?= $order->title ?></h6>
                     <p class="card-text">Quantity: <?= $order->quantity ?></p>
                     <p class="card-text">Unit Price: <?= $order->unit_price ?></p>
-                    <p class="card-text">Total Price: <?= $order->quantity * $order->unit_price ?></p>
+                    <p class="card-text">Total Price: <?= $order->quantity * $order->unit_price * 1.15 ?></p>
                     <p class="card-text">Order Date: <?= $order->order_date ?></p>
                 </div>
                 <div class="card-footer">
