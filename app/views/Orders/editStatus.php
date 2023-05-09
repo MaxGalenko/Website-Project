@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Order Details'); ?>
+<?php $this->view('shared/header', 'Change Order Status'); ?>
 
 <div class="container">
     <h1>Order Details</h1>
@@ -22,7 +22,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="status" value="<?= $data->status ?>">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">Save changes</button>
+                                        <button class="btn btn-primary" type="submit" style="background-color: #324A5F; color: #FFFFFF;">Save changes</button>
                                     </div>
                                 </div>
                             </form>
@@ -41,11 +41,11 @@
                     </tr>
                     <tr>
                         <td><strong>Email:</strong></td>
-                        <td><?= $data[0]->email ?></td>
+                        <td><?= $data->email ?></td>
                     </tr>
                     <tr>
                         <td><strong>Phone:</strong></td>
-                        <td><?= $data[0]->phone_number ?></td>
+                        <td><?= $data->phone_number ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -55,28 +55,28 @@
                 <tbody>
                     <tr>
                         <td><strong>Street Address:</strong></td>
-                        <td><?= $data[0]->street_address ?></td>
+                        <td><?= $data->street_address ?></td>
                     </tr>
                     <tr>
                         <td><strong>Postal Code:</strong></td>
-                        <td><?= $data[0]->postal_code ?></td>
+                        <td><?= $data->postal_code ?></td>
                     </tr>
                     <tr>
                         <td><strong>City:</strong></td>
-                        <td><?= $data[0]->city ?></td>
+                        <td><?= $data->city ?></td>
                     </tr>
                     <tr>
                         <td><strong>Province:</strong></td>
-                        <td><?= $data[0]->province ?></td>
+                        <td><?= $data->province ?></td>
                     </tr>
                     <tr>
                         <td><strong>Country:</strong></td>
-                        <td><?= $data[0]->country ?></td>
+                        <td><?= $data->country ?></td>
                     </tr>
                 </tbody>
             </table>
     </div>
-    <h1>Order Items</h1>
+    <!-- <h1>Order Items</h1>
     <table class="table">
         <thead>
             <tr>
@@ -97,7 +97,7 @@
                 </tr>
             <?php endforeach ?>
         </tbody>
-    </table>
+    </table> -->
     <a href="/Orders/orders" class="btn btn-secondary">Back</a>
 </div>
 

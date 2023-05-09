@@ -9,6 +9,23 @@ class Orders extends \app\core\Model {
     public $quantity;
     public $order_date;
 
+    public $image;
+
+    public $profile_id;
+    public $first_name;
+    public $middle_name;
+    public $last_name;
+    public $email;
+    public $phone_number;
+
+    public $address_id;
+    public $street_address;
+    public $postal_code;
+    public $city;
+    public $province;
+    public $country;
+
+
     public static function getAllOrders($user_id) {
     if ($_SESSION['role'] === 'admin') {
         $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
@@ -24,6 +41,7 @@ class Orders extends \app\core\Model {
         }
     return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
     }
+
     public static function getOrder($order_id) {
         $SQL = 'SELECT o.order_id, o.status, o.order_date, p.title, oi.quantity, oi.unit_price FROM orders o
                 JOIN order_details oi ON o.order_id = oi.order_id JOIN product p ON oi.product_id = p.product_id WHERE o.order_id = :order_id';
