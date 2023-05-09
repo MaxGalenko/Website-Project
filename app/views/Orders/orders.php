@@ -7,20 +7,15 @@
                 <div class="card-header">
                     <h5 class="card-title">Order #<?= $order->order_id ?></h5>
                     <p class="card-text">Status: <?= $order->status ?></p>
-<<<<<<< HEAD
                     <?php if($_SESSION['role'] === 'admin'): ?>
-                        <a href="/Orders/updateStatus/<?= $order->order_id ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Change status</a>
-=======
-                    <?php if($_SESSION['role'] == 'admin'): ?>
                         <a href="/Orders/editStatus/<?= $order->order_id ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Change status</a>
->>>>>>> 432aca17fd4fd600fe84342129d7cfc19049b399
                     <?php endif; ?>
                 </div>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted"><?= $order->title ?></h6>
                     <p class="card-text">Quantity: <?= $order->quantity ?></p>
                     <p class="card-text">Unit Price: <?= $order->unit_price ?></p>
-                    <p class="card-text">Total Price: to do<!-- <?= $order->unit_price ?> --></p>
+                    <p class="card-text">Total Price: <?= $order->quantity * $order->unit_price ?></p>
                     <p class="card-text">Order Date: <?= $order->order_date ?></p>
                 </div>
                 <div class="card-footer">

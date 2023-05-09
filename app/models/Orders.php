@@ -18,7 +18,7 @@ class Orders extends \app\core\Model {
     }
 
     public static function getOrderDetails($order_id) {
-<<<<<<< HEAD
+
 	    $SQL = 'SELECT o.order_id, o.order_date, o.status, oi.quantity, oi.unit_price, p.title, p.image,
 	            pr.profile_id, pr.first_name, pr.middle_name, pr.last_name, pr.email, pr.phone_number,
 	            a.address_id, a.street_address, a.postal_code, a.city, a.province, a.country
@@ -37,14 +37,11 @@ class Orders extends \app\core\Model {
 	    $SQL = 'UPDATE orders SET status = :status WHERE order_id = :order_id';
 	    $STH = self::$connection->prepare($SQL);
 	    $STH->execute(['status' => $status, 'order_id' => $order_id]);
-    }
 
-=======
         $SQL = 'SELECT oi.quantity, p.title, p.unit_price, oi.unit_price FROM order_details oi
                 JOIN product p ON oi.product_id = p.product_id WHERE oi.order_id = :order_id';
         $STH = self::$connection->prepare($SQL);
         $STH->execute(['order_id' => $order_id]);
         return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
     }
->>>>>>> 432aca17fd4fd600fe84342129d7cfc19049b399
 }
