@@ -30,7 +30,7 @@ class Cart extends \app\core\Model{
     	return $STH->fetchAll();
 	}
 
-	public function addToCart($product_id){
+	public function addToCart(){
 		$SQL = 'INSERT INTO order_details(order_id, product_id) VALUE (:order_id, :product_id)';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
@@ -62,6 +62,7 @@ class Cart extends \app\core\Model{
 			'address_id' => $this->address_id,
 			'status' => $this->status,
 		]);
+		return self::connection->lastInsertId();
 	}
 
 	public function find($order_details_id){
@@ -76,7 +77,7 @@ class Cart extends \app\core\Model{
 		$SQL = 'SELECT * FROM `address` WHERE profile_id=:profile_id';
         $STH = self::$connection->prepare($SQL);
         $STH->execute(['profile_id'=>$profile_id]);
-        $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Cart');
+        $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Profile');
     	return $STH->fetch();
 	}
 }

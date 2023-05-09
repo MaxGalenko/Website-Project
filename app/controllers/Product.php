@@ -70,6 +70,7 @@ class Product extends \app\core\Controller {
     public function details($product_id) {
     $productModel = new \app\models\Product();
     $product = $productModel->get($product_id);
+    $_SESSION['uri'] = '/Product/details/'.$product_id;
     $this->view('Product/details', $product);
     }
 
