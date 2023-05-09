@@ -26,4 +26,46 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * Define custom actions here
      */
+
+    /**
+     * 
+     * @Given I am on :arg1
+     */
+    public function iAmOn($url)
+    {
+        $this->amOnPage($url); //make the browser go on a URL
+    }
+
+    /**
+     * @When I enter :arg1 in the search box
+     */
+    public function iEnterInTheSearchBox($term)
+    {
+        $this->fillField('q', $term);//write the term in the box
+    }
+
+    /**
+     * @When click Search
+     */
+    public function clickSearch()
+    {
+        $this->click('Google Search');
+    }
+    
+    /**
+     * @Then I see :arg1
+     */
+    public function iSee($arg1)
+    {
+        $this->see($arg1);//assert that you can see the string
+    }
+
+    /**
+     * @Then I don't see :text
+     */
+    public function iDontSee($text)
+    {
+        $this->dontSee($text);
+    }
+
 }
