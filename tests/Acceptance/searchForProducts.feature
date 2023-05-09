@@ -3,14 +3,14 @@ Feature: Search for Products
 	As a registered user of the system
 	I want to be able to search and get the results
 
-	Scenario: try searching the catalog
-		Given I am on "http://localhost/Main/index"
-		When I enter "Macbook" in the search box
-		And I press "search" button
-		Then I see "Macbook"
+	Scenario: try searching for Gaming
+		Given I am on "http://localhost/Main/index" page
+		And I input "Gaming" in "search_term"
+		When I click "search"
+		Then I see "Gaming PC"
 
-	Scenario: try searching the catalog for something that doesnt exist
-		Given I am on "http://localhost/Main/index"
-		When I enter "Banana" in the search box
-		And I press "search" button
-		Then I don't see "Macbook"
+	Scenario: try searching 
+		Given I am on "http://localhost/Main/index" page
+		And I input "Banana" in "search_term"
+		When I click "search"
+		Then I don't see "Banana"

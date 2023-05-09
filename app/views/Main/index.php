@@ -9,12 +9,12 @@
 <form action="/Main/index" method="post">
 	<label for="color">Filter:</label>
 	<select name="filter" onchange="this.form.submit();" id="filter" aria-label="Filtering">
-    	<option value="chooseFilter">-Choose Filter-</option>
-		<option value="default">Default</option>
-    	<option value="ascendingP">Price Ascending</option>
-    	<option value="descendingP">Price Descending</option>
-		<option value="ascendingT">Title Ascending</option>
-    	<option value="descendingT">Title Descending</option>
+    	<option value="chooseFilter"><?=_('-Choose Filter-')?></option>
+		<option value="default"><?=_('Default')?></option>
+    	<option value="ascendingP"><?=_('Price Ascending')?></option>
+    	<option value="descendingP"><?=_('Price Descending')?></option>
+		<option value="ascendingT"><?=_('Title Ascending')?></option>
+    	<option value="descendingT"><?=_('Title Descending')?></option>
   	</select>
 </form>
 
