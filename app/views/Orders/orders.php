@@ -7,6 +7,9 @@
                 <div class="card-header">
                     <h5 class="card-title">Order #<?= $order->order_id ?></h5>
                     <p class="card-text">Status: <?= $order->status ?></p>
+                    <?php if($_SESSION['role'] === 'admin'): ?>
+                        <a href="/Orders/editStatus/<?= $order->order_id ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Change status</a>
+                    <?php endif; ?>
                 </div>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted"><?= $order->title ?></h6>
@@ -24,3 +27,4 @@
 </div>
 
 <?php $this->view('shared/footer'); ?>
+
