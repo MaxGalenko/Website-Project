@@ -4,28 +4,18 @@ Feature: Edit User Profile
 	I want to be able to edit my profile
 
 	Scenario: Successfully editing user profile
-		Given I am logged into the system
-		When I click on the "Edit Profile" button
-		And I am taken to the "Edit Profile" page
-		And I modify the desired fields with valid information
-		And I click on the "Save Changes" button
-		Then I should see a message confirming that my profile has been successfully updated
-		And my updated information should be displayed on my profile page
-
-	Scenario: Canceling profile edits
-		Given I am logged into the system
-		When I click on the "Edit Profile" button
-		And I am taken to the "Edit Profile" page
-		And I modify the desired fields with valid information
-		And I click on the "Cancel" button
-		Then I should see a message confirming that no changes have been made
-		And my original information should still be displayed on my profile page
-
-	Scenario: Invalid profile information
-		Given I am logged into the system
-		When I click on the "Edit Profile" button
-		And I am taken to the "Edit Profile" page
-		And I enter invalid information in one or more fields
-		And I click on the "Save Changes" button
-		Then I should see an error message indicating that the information is invalid
-		And I should be prompted to correct the errors and try again
+		Given I am on "http://localhost/" page
+		When I click ".bi-door-closed"
+		Then I am on "http://localhost/User/index" page
+		And I input "banana2" in "username"
+		And I input "123" in "password"
+		And I click "action"
+		Then I am on "http://localhost/Main/index" page
+		And I click "#profileStuff"
+		Then I am on "http://localhost/Profile/index" page
+		And I click "edit"
+		Then I am on "http://localhost/Profile/editProfileInfo" page
+		And I input "FriedNoodles" in "first_name_edit"
+		And I click "action"
+		Then I am on "http://localhost/Profile/index" page
+		And I see "FriedNoodles"
