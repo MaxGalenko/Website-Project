@@ -41,9 +41,9 @@
 					<a href="/Product/edit/<?= $product->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Edit Product</a>
 					<a href="/Product/delete/<?= $product->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Delete Product</a>
 				<?php } else { ?>
-					<a href="/Cart/addToCart/<?= $product->product_id ?>" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
+					<a href="/Cart/addToCart/<?= $product->product_id ?>" id="p<?=$product->product_id;?>" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
 				<?php } ?>
-				<a href="/Product/details/<?= $product->product_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
+				<a href="/Product/details/<?= $product->product_id; ?>" id="p<?=$product->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">View details</a>
 			</div>
 		</div>
 	</main>
