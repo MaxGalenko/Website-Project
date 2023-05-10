@@ -1,5 +1,4 @@
 <?php
-
 namespace app\models;
 
 class Orders extends \app\core\Model {
@@ -27,12 +26,13 @@ class Orders extends \app\core\Model {
     public $country;
 
 
-	public static function getAllOrders($user_id) {
-	    if ($_SESSION['role'] === 'admin') {
+	public function getAllOrders($user_id) {
+	    if ($_SESSION['role'] == 'admin') {
 	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity
 	                FROM orders o
 	                JOIN order_details oi ON o.order_id = oi.order_id 
 	                JOIN product p ON oi.product_id = p.product_id 
+                    WHERE o.status != "In cart"
 	                GROUP BY o.order_id';
 	        $STH = self::$connection->prepare($SQL);
 	        $STH->execute();
@@ -41,7 +41,7 @@ class Orders extends \app\core\Model {
 	                FROM orders o
 	                JOIN order_details oi ON o.order_id = oi.order_id 
 	                JOIN product p ON oi.product_id = p.product_id 
-	                WHERE o.profile_id = :user_id 
+	                WHERE o.profile_id = :user_id AND o.status != "In cart"
 	                GROUP BY o.order_id';
 	        $STH = self::$connection->prepare($SQL);
 	        $STH->execute(['user_id' => $user_id]);
@@ -49,7 +49,7 @@ class Orders extends \app\core\Model {
 	    return $STH->fetchAll(\PDO::FETCH_CLASS, 'app\\models\\Orders');
 	}
 
-     public static function getOrder($order_id) {
+     public function getOrder($order_id) {
         $SQL = 'SELECT o.order_id, o.order_date, o.status, oi.quantity, oi.unit_price, p.title, p.image,
             pr.profile_id, pr.first_name, pr.middle_name, pr.last_name, pr.email, pr.phone_number,
             a.address_id, a.street_address, a.postal_code, a.city, a.province, a.country
@@ -65,7 +65,7 @@ class Orders extends \app\core\Model {
         return $STH->fetch();
     }
 
-    public static function getOrderDetails($order_id) {
+    public function getOrderDetails($order_id) {
 
     $SQL = 'SELECT o.order_id, o.order_date, o.status, o.total_price, oi.quantity, oi.unit_price, p.title, p.image,
             pr.profile_id, pr.first_name, pr.middle_name, pr.last_name, pr.email, pr.phone_number,

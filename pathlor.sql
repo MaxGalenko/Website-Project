@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 11:33 PM
+-- Generation Time: May 10, 2023 at 07:32 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -80,7 +80,7 @@ CREATE TABLE `orders` (
   `address_id` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
   `total_price` decimal(6,2) NOT NULL,
-  `order_date` datetime DEFAULT NULL
+  `order_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -88,7 +88,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `total_price`, `order_date`) VALUES
-(1, 5, 1, 'In cart', '0.00', NULL);
+(1, 5, 1, 'In progress', '4199.77', '2023-05-10'),
+(9, 5, 1, 'In progress', '576.14', '2023-05-10'),
+(10, 5, 1, 'In cart', '0.00', '2023-05-10');
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,13 @@ INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `quan
 (1, 1, 12, 1, '1250.99'),
 (2, 1, 11, 1, '200.99'),
 (3, 2, 10, 1, '1250.99'),
-(4, 1, 9, 1, '0.00');
+(4, 1, 9, 1, '0.00'),
+(7, 4, 8, 1, '0.00'),
+(9, 7, 8, 1, '0.00'),
+(11, 8, 10, 1, '0.00'),
+(12, 8, 10, 1, '0.00'),
+(13, 9, 10, 1, '0.00'),
+(14, 10, 9, 1, '0.00');
 
 -- --------------------------------------------------------
 
@@ -155,11 +163,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `title`, `type`, `description`, `image`, `unit_price`, `discount_price`, `quantity`) VALUES
-(8, 'Gaming computer', 'Computer', 'This is a gaming pc', '8-64483d232fb7d.jpg', '209.99', '150.99', 10),
 (9, 'Gaming laptop', 'Laptop', 'this is a gaming laptop', NULL, '199.99', '0.00', 5),
 (10, 'Home Laptop', 'Laptop', 'This is a home laptop', '-64505bcd40bc7.jpg', '500.99', '0.00', 2),
 (11, 'Home Desktop', 'Desktop', 'This is a home desktop', '-64506057e4a5e.jpg', '2200.99', '0.00', 1),
-(12, 'Gaming PC', 'Desktop', 'This is a gaming PC', '-6450609a19a48.jpg', '1250.99', '0.00', 4);
+(12, 'Gaming PC', 'Desktop', 'This is a gaming PC', '-6450609a19a48.jpg', '1250.99', '0.00', 4),
+(13, 'Gaming Laptop', 'Laptop', 'This is a gaming laptop', '-645b209ebee5d.jpg', '1250.99', '0.00', 1);
 
 -- --------------------------------------------------------
 
@@ -284,13 +292,13 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -302,7 +310,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `profile`
