@@ -1,6 +1,6 @@
 <?php $this->view('shared/header', 'Profile Page'); ?>
 
-<link rel="stylesheet" href="/css/Profile/main.css">
+<link rel="stylesheet" href="/css/Profile/style.css">
 
 <!-- This is the container to preview both address and profile side by side -->
 <div class="contentContainerC">

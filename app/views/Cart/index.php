@@ -56,17 +56,13 @@ $total = 0;
 					<td><?=_('Total')?></td>
 					<td>$<?= number_format($total, 2) ?></td>
 				</tr>
-				<tr>
-					<td><button class="btn btn-default" type="submit" name="action" style="background-color: #324A5F; color: #FFFFFF; width: 100%; ">Checkout</button></td>
-				</tr>
-				<tr>
-					<td>
-						<div class="alert alert-warning" role="alert">
-						  You will need to contact us to discuss the payment details before receiveing the product
-						</div>
-					</td>
-				</tr>
 			</table>
+		</div>
+		<div class="checkout">
+			<button class="btn btn-default" type="submit" name="action" style="background-color: #324A5F; color: #FFFFFF; width: 100%; ">Checkout</button>
+			<div class="alert alert-warning" role="alert">
+				Note: You will need to contact us to discuss the payment details before receiveing the product
+			</div>
 		</div>
 	</div>
 </form>

@@ -53,3 +53,14 @@ td:last-child{
 th:last-child{
 	text-align: right;
 }
+
+.checkout{
+	margin-left: auto;
+	margin-right: 0;
+	width: 100%;
+	max-width: 505px;
+}
+
+.checkout div{
+	margin-top: 10px;
+}

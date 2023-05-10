@@ -20,7 +20,7 @@ class Cart extends \app\core\Model{
 	public $image;
 
 
-	public static function getAllCartProducts($profile_id){
+	public function getAllCartProducts($profile_id){
 		$SQL = 'SELECT od.order_details_id, p.title, p.image, p.unit_price, p.product_id, p.discount_price FROM orders o 
 				JOIN order_details od ON o.order_id = od.order_id JOIN product p ON od.product_id = p.product_id 
 				WHERE o.order_id = od.order_id AND o.profile_id = :profile_id AND o.status = "in cart"';
@@ -55,7 +55,7 @@ class Cart extends \app\core\Model{
 	}
 
 	public function createCart(){
-		$SQL = 'INSERT INTO orders(order_id, profile_id, address_id, `status`) VALUE (:order_id, :profile_id, :address_id, :status)';
+		$SQL = 'INSERT INTO orders(order_id, profile_id, address_id, `status`) VALUES (:order_id, :profile_id, :address_id, :status)';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute([
 			'order_id' => $this->order_id,
@@ -63,7 +63,7 @@ class Cart extends \app\core\Model{
 			'address_id' => $this->address_id,
 			'status' => $this->status,
 		]);
-		return self::connection->lastInsertId();
+		return self::$connection->lastInsertId();
 	}
 
 	public function find($order_details_id){
