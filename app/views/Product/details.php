@@ -21,7 +21,13 @@
                 <p><b>Quantity:</b> <?= $data->quantity ?></p>
 
             <br><a href="/Main/index" class="btn btn-secondary">Back</a>
-            <a href="/Cart/addToCart/<?= $data->product_id ?>" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
+            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){ ?>
+                <a href="/Product/edit/<?= $data->product_id; ?>" id="e<?=$data->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Edit Product</a>
+                    <a href="/Product/delete/<?= $data->product_id; ?>" id="d<?=$data->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Delete Product</a>
+            <?php } ?>
+            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer'){ ?>
+                <a href="/Cart/addToCart/<?= $data->product_id ?>" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; ">Add to Cart</a>
+            <?php } ?>
         </div>
     </div>
 </div>
