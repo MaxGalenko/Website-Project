@@ -27,7 +27,7 @@
 
                 <div class="form-group mb-4">
                     <div class="input-group">   
-                        <input type="text" class="form-control" id="password" name="email" placeholder="Email" style="background-color: #F2F2F2; color: #324A5F;">
+                        <input type="text" class="form-control" id="password" name="email" placeholder="Email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background-color: #F2F2F2; color: #324A5F;">
                     </div>
                 </div>  
 
