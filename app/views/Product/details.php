@@ -25,5 +25,5 @@
         </div>
     </div>
 </div>
-<?php $this->view('shared/footer'); ?>
 
+<?php $this->view('shared/footer'); ?>
