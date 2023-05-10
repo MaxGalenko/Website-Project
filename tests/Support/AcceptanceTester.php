@@ -29,11 +29,17 @@ class AcceptanceTester extends \Codeception\Actor
 
     // General Code
 
+    public function cookies() {
+        $this->setCookie('lang', 'en');
+        $this->setCookie('TZ', 'America/Toronto');
+    }
+
     /**
     * @When I input :arg1 in :arg2
     */
     public function iInputIn($value, $fieldname)
     {
+        $this->cookies();
         $this->fillField($fieldname, $value);
     }
 
@@ -42,6 +48,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function iSee($text)
     {
+        $this->cookies();
         $this->see($text);
     }
 
@@ -50,6 +57,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function iDontSee($text)
     {
+        $this->cookies();
         $this->dontSee($text);
     }
 
@@ -59,6 +67,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function iAmOnPage($url)
     {
+        $this->cookies();
         $this->amOnPage($url);
     }
 
@@ -67,6 +76,9 @@ class AcceptanceTester extends \Codeception\Actor
     */
     public function iClick($arg1)
     {
+        $this->cookies();
         $this->click($arg1);
     }
+
+
 }
