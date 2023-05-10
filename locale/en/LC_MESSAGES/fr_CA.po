@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-09 19:14-0400\n"
+"PO-Revision-Date: 2023-05-09 20:20-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: app/views/About/edit.php:3 app/views/About/index.php:3
+msgid "About Pathlor Tech"
+msgstr "A propos de Pathlor Tech"
+
+#: app/views/About/edit.php:12 app/views/Contact/edit.php:13
+msgid "Back"
+msgstr "Retour"
+
+#: app/views/About/edit.php:13 app/views/Contact/edit.php:14
+msgid "Submit changes"
+msgstr "Soumettre des modifications"
+
+#: app/views/About/index.php:13 app/views/Contact/index.php:7
+msgid "Edit"
+msgstr "Modifier"
+
+#: app/views/Cart/index.php:14
+msgid "Product"
+msgstr "Produit"
+
+#: app/views/Cart/index.php:15 app/views/Cart/index.php:46
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#: app/views/Cart/index.php:29
+msgid "Remove"
+msgstr "Enlever"
+
+#: app/views/Cart/index.php:50
+msgid "Tax"
+msgstr "Taxe"
+
+#: app/views/Cart/index.php:54
+msgid "Total"
+msgstr "Total"
+
+#: app/views/Contact/edit.php:4 app/views/Contact/index.php:4
+msgid "Contact us"
+msgstr "Contactez-nous"
+
+#: app/views/Contact/index.php:11
+msgid ""
+"Do you have any questions? Please do not hesitate to contact us directly. We "
+"will be sure to respond as soon as possible."
+msgstr ""
+
+#: app/views/Contact/index.php:19
+msgid "Name"
+msgstr ""
+
+#: app/views/Contact/index.php:20
+msgid "Write your name here"
+msgstr ""
+
+#: app/views/Contact/index.php:25
+msgid "Email"
+msgstr ""
+
+#: app/views/Contact/index.php:26
+msgid "Example@gmail.com"
+msgstr ""
+
+#: app/views/Contact/index.php:33 app/views/Contact/index.php:34
+msgid "Subject"
+msgstr ""
+
+#: app/views/Contact/index.php:42
+msgid "Message"
+msgstr ""
+
+#: app/views/Contact/index.php:43
+msgid "Write your message here"
+msgstr ""
+
+#: app/views/Contact/index.php:49
+msgid "Send"
+msgstr ""
+
+#: app/views/Contact/sent.php:4
+msgid "Email sent successfuly"
+msgstr ""
+
+#: app/views/Main/index.php:12
+msgid "-Choose Filter-"
+msgstr ""
+
+#: app/views/Main/index.php:13
+msgid "Default"
+msgstr ""
+
+#: app/views/Main/index.php:14
+msgid "Price Ascending"
+msgstr ""
+
+#: app/views/Main/index.php:15
+msgid "Price Descending"
+msgstr ""
+
+#: app/views/Main/index.php:16
+msgid "Title Ascending"
+msgstr ""
+
+#: app/views/Main/index.php:17
+msgid "Title Descending"
+msgstr ""
+
+#: app/views/shared/footer.php:3
+msgid "Contact Us"
+msgstr ""
+
+#: app/views/shared/footer.php:5
+msgid "About Us"
+msgstr ""
+
+#: app/views/shared/header.php:2
+msgid "ltr"
+msgstr ""
+
+#: app/views/shared/header.php:2
+msgid "en"
+msgstr ""
+
+#: app/views/shared/header.php:19
+msgid "Pathlor Tech"
+msgstr ""
+
+#: app/views/shared/header.php:53
+msgid "Search"
+msgstr ""
