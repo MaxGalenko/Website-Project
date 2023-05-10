@@ -4,22 +4,17 @@ Feature: Edit About Us Page
 	I want to be able edit the page and get the results
 
 	Scenario: Editing the about us page
-		Given I am logged into the system with admin status
-		When I click on "edit" on the "About us" page
-		And I fill up the "form" provided
-		And I click "save"
-		Then I see the page with changes applied
-
-	Scenario: Cancelling editing the about us page
-		Given I am logged into the system with admin status
-		When I click on "edit" on the "About us" page
-		And I fill up the "form" provided
-		And I click "cancel"
-		Then I see the "form" disappear
-
-	Scenario: Editing the about us page with empty forms
-		Given I am logged into the system with admin status
-		When I click on "edit" on the "About us" page
-		And I don't fill up the "form" provided
-		And I click "save"
-		Then I see a "Please fill up missing blanks to edit page" prompt
+		Given I am on "http://localhost/" page
+		When I click ".bi-door-closed"
+		Then I am on "http://localhost/User/index" page
+		And I input "bananaking" in "username"
+		And I input "12345" in "password"
+		And I click "action"
+		Then I am on "http://localhost/Main/index" page
+		And I click "About Us"
+		Then I am on "http://localhost/About/index" page
+		And I click ".btn-default"
+		Then I am on "http://localhost/About/edit" page
+		And I input "Why in the world is this not working" in "about_text"
+		And I click "action"
+		Then I see "Why"

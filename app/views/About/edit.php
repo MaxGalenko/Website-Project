@@ -4,7 +4,7 @@
 <form name="submit-changes" action="" method="post">
 	<div class="d-flex justify-content-center" id="about">
 		<div id="aboutText">
-			<textarea name="about_text" rows="20" cols="160"><?= $data->about_text ?></textarea>
+			<textarea name="about_text" placeholder="Enter About Us Description" rows="20" cols="160"><?= $data->about_text ?></textarea>
 		</div>
 	</div>
 
