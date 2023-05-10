@@ -8,7 +8,7 @@ class Orders extends \app\core\Model {
     public $status;
     public $quantity;
     public $order_date;
-
+    public $unit_price;
     public $image;
 
     public $profile_id;
@@ -29,7 +29,7 @@ class Orders extends \app\core\Model {
 
 	public static function getAllOrders($user_id) {
 	    if ($_SESSION['role'] === 'admin') {
-	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity, oi.unit_price
+	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity
 	                FROM orders o
 	                JOIN order_details oi ON o.order_id = oi.order_id 
 	                JOIN product p ON oi.product_id = p.product_id 
@@ -37,7 +37,7 @@ class Orders extends \app\core\Model {
 	        $STH = self::$connection->prepare($SQL);
 	        $STH->execute();
 	    } else {
-	        $SQL = 'SELECT o.order_id, o.status, o.order_date, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity, SUM(oi.unit_price * oi.quantity) as total_price
+	        $SQL = 'SELECT o.order_id, o.status, o.order_date, o.total_price, GROUP_CONCAT(p.title SEPARATOR ", ") as products, SUM(oi.quantity) as quantity
 	                FROM orders o
 	                JOIN order_details oi ON o.order_id = oi.order_id 
 	                JOIN product p ON oi.product_id = p.product_id 
