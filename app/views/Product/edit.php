@@ -1,4 +1,5 @@
 <?php $this->view('shared/header', 'Edit Product'); ?>
+
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -10,7 +11,16 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type:</label>
-                    <input type="text" id="type" name="type" class="form-control" value="<?=$data->type ?>" required style="color: #324A5F;">
+                    <br>
+                    <select class="form-select" id="type" name="type" required>
+                        <?php if($data->type == 'Desktop') { ?>
+                            <option class="form-item" selected value="Desktop">Desktop</option>
+                            <option class="form-item" value="Laptop">Laptop</option>
+                        <?php }else { ?>
+                            <option class="form-item" value="Desktop">Desktop</option>
+                            <option class="form-item" selected value="Laptop">Laptop</option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
@@ -19,12 +29,12 @@
                 <div class="form-group">
                     <label for="image">Image:</label>
                     <br>
-                    <img id='pic_preview' width='200px'/>
-                    <br>
                     <?php if(isset($product) && $product->image != '') { ?>
                         <img src="./images/<?= $data->image ?>" width="100"><br>
                     <?php } ?>
                     <input type="file" id="image" name="image" class="form-control-file" accept="image/*" value="<?=$data->image ?>" style="color: #324A5F;">
+                    <br>
+                    <img id='pic_preview' width='200px'>
                 </div>
                 <div class="form-group">
                     <label for="unit_price">Unit Price:</label>
@@ -46,18 +56,20 @@
         </div>
     </div>
 </div>
+
 <script>
     image.onchange = evt => {
-        const [file] = picture.files
+        const [file] = image.files
         if (file) {
         pic_preview.src = URL.createObjectURL(file)
         }
     }
 </script>
-<?php $this->view('shared/footer'); ?>
+
 <script>
     function clearImage() {
         document.querySelector('input[name="clear_image"]').value = 'true';
     }
 </script>
 
+<?php $this->view('shared/footer'); ?>

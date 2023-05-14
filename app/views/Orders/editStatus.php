@@ -20,9 +20,17 @@
                         <td>
                             <form action="/Orders/editStatus/<?= $data->order_id ?>" method="POST">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="status" value="<?= $data->status ?>">
+                                    <select class="form-select" id="status" name="status" required>
+                                        <?php if($data->status == 'In progress') { ?>
+                                            <option class="form-item" selected value="In progress">In progress</option>
+                                            <option class="form-item" value="Completed">Completed</option>
+                                        <?php }else { ?>
+                                            <option class="form-item" value="In progress">In progress</option>
+                                            <option class="form-item" selected value="Completed">Completed</option>
+                                        <?php } ?>
+                                    </select>
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit" style="background-color: #324A5F; color: #FFFFFF;">Save changes</button>
+                                        <button class="btn btn-default" type="submit" style="background-color: #324A5F; color: #FFFFFF;">Save changes</button>
                                     </div>
                                 </div>
                             </form>

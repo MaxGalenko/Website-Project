@@ -11,7 +11,11 @@
                 </div>
                 <div class="form-group">
                     <label for="type" style="color: #324A5F;">Type:</label>
-                    <input type="text" id="type" name="type" class="form-control" required style="color: #324A5F;">
+                    <br>
+                    <select class="form-select" id="type" name="type" required>
+                        <option class="form-item" value="Desktop">Desktop</option>
+                        <option class="form-item" value="Laptop">Laptop</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="description" style="color: #324A5F;">Description:</label>
@@ -20,6 +24,8 @@
                 <div class="form-group">
                     <label for="image" style="color: #324A5F;">Image:</label>
                     <input type="file" id="image" name="image" class="form-control-file" accept="image/*" style="color: #324A5F;">
+                    <br>
+                    <img id='pic_preview' width='200px'>
                 </div>
                 <div class="form-group">
                     <label for="unit_price" style="color: #324A5F;">Unit Price:</label>
@@ -40,5 +46,13 @@
     </div>
 </div>
 
-<?php $this->view('shared/footer'); ?>
+<script>
+    image.onchange = evt => {
+  const [file] = image.files
+  if (file) {
+    pic_preview.src = URL.createObjectURL(file)
+  }
+}
+</script>
 
+<?php $this->view('shared/footer'); ?>
