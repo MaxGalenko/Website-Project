@@ -52,7 +52,15 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_term">
         <button class="btn btn-outline-light" type="submit" name="search"><?= _('Search') ?></button>
       </form>
-      <a href="?lang=fr_CA" class="btn btn-outline-light">FR</a>
-      <a href="?lang=en" class="btn btn-outline-light">EN</a>
+      <?php
+      global $lang;
+
+      if($lang != 'fr_CA'){
+        echo '<a href="?lang=fr_CA" class="btn btn-outline-light">FR</a>';
+      }
+      if($lang != 'en'){
+        echo '<a href="?lang=en" class="btn btn-outline-light">EN</a>';
+      }
+      ?>
     </div>
   </nav>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 19:14-0400\n"
-"PO-Revision-Date: 2023-05-09 20:20-0400\n"
+"POT-Creation-Date: 2023-05-15 13:37-0400\n"
+"PO-Revision-Date: 2023-05-15 13:39-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_CA\n"
@@ -16,13 +16,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3\n"
+
+#: app/views/About/edit.php:1 app/views/About/index.php:1
+#: app/views/shared/footer.php:5
+msgid "About Us"
+msgstr ""
 
 #: app/views/About/edit.php:3 app/views/About/index.php:3
 msgid "About Pathlor Tech"
 msgstr "A propos de Pathlor Tech"
 
+#: app/views/About/edit.php:7
+msgid "Enter About Us Description"
+msgstr ""
+
 #: app/views/About/edit.php:12 app/views/Contact/edit.php:13
+#: app/views/Orders/details.php:92 app/views/Orders/editStatus.php:87
+#: app/views/Product/create.php:42 app/views/Product/details.php:23
+#: app/views/Product/edit.php:52
 msgid "Back"
 msgstr "Retour"
 
@@ -34,25 +46,48 @@ msgstr "Soumettre des modifications"
 msgid "Edit"
 msgstr "Modifier"
 
+#: app/views/Cart/index.php:1 app/views/shared/header.php:42
+msgid "Cart"
+msgstr ""
+
 #: app/views/Cart/index.php:14
 msgid "Product"
 msgstr "Produit"
 
-#: app/views/Cart/index.php:15 app/views/Cart/index.php:46
+#: app/views/Cart/index.php:15 app/views/Cart/index.php:57
 msgid "Subtotal"
 msgstr "Sous-total"
 
-#: app/views/Cart/index.php:29
+#: app/views/Cart/index.php:28 app/views/Cart/index.php:30
+msgid "Price: "
+msgstr ""
+
+#: app/views/Cart/index.php:33
 msgid "Remove"
 msgstr "Enlever"
 
-#: app/views/Cart/index.php:50
+#: app/views/Cart/index.php:61
 msgid "Tax"
 msgstr "Taxe"
 
-#: app/views/Cart/index.php:54
+#: app/views/Cart/index.php:65
 msgid "Total"
 msgstr "Total"
+
+#: app/views/Cart/index.php:71
+msgid "Checkout"
+msgstr ""
+
+#: app/views/Cart/index.php:73
+msgid ""
+"Note: You will need to contact us to discuss the payment details before "
+"receiveing the product"
+msgstr ""
+
+#: app/views/Contact/edit.php:1 app/views/Contact/index.php:1
+#: app/views/Contact/sent.php:1 app/views/shared/footer.php:3
+msgid "Contact Us"
+msgstr ""
 
 #: app/views/Contact/edit.php:4 app/views/Contact/index.php:4
 msgid "Contact us"
@@ -72,7 +107,7 @@ msgstr ""
 msgid "Write your name here"
 msgstr ""
 
-#: app/views/Contact/index.php:25
+#: app/views/Contact/index.php:25 app/views/Profile/registerPers.php:30
 msgid "Email"
 msgstr ""
 
@@ -100,36 +135,383 @@ msgstr ""
 msgid "Email sent successfuly"
 msgstr ""
 
-#: app/views/Main/index.php:12
-msgid "-Choose Filter-"
+#: app/views/Main/index.php:1
+msgid "Catalog"
 msgstr ""
 
-#: app/views/Main/index.php:13
-msgid "Default"
+#: app/views/Main/index.php:7
+#, fuzzy
+#| msgid "Product"
+msgid "Products"
+msgstr "Produit"
+
+#: app/views/Main/index.php:12
+msgid "Filter:"
 msgstr ""
 
 #: app/views/Main/index.php:14
-msgid "Price Ascending"
+msgid "-Choose Filter-"
 msgstr ""
 
 #: app/views/Main/index.php:15
-msgid "Price Descending"
+msgid "Default"
 msgstr ""
 
 #: app/views/Main/index.php:16
-msgid "Title Ascending"
+msgid "Price Ascending"
 msgstr ""
 
 #: app/views/Main/index.php:17
+msgid "Price Descending"
+msgstr ""
+
+#: app/views/Main/index.php:18
+msgid "Title Ascending"
+msgstr ""
+
+#: app/views/Main/index.php:19
 msgid "Title Descending"
 msgstr ""
 
-#: app/views/shared/footer.php:3
-msgid "Contact Us"
+#: app/views/Main/index.php:29 app/views/Main/index.php:31
+msgid "No image for this product"
 msgstr ""
 
-#: app/views/shared/footer.php:5
-msgid "About Us"
+#: app/views/Main/index.php:43 app/views/Product/details.php:25
+#: app/views/Product/edit.php:1
+#, fuzzy
+#| msgid "Product"
+msgid "Edit Product"
+msgstr "Produit"
+
+#: app/views/Main/index.php:44 app/views/Product/details.php:26
+#, fuzzy
+#| msgid "Product"
+msgid "Delete Product"
+msgstr "Produit"
+
+#: app/views/Main/index.php:46 app/views/Product/details.php:29
+msgid "Add to Cart"
+msgstr ""
+
+#: app/views/Main/index.php:48 app/views/Orders/orders.php:21
+msgid "View details"
+msgstr ""
+
+#: app/views/Orders/details.php:1 app/views/Orders/details.php:4
+#: app/views/Orders/editStatus.php:4
+msgid "Order Details"
+msgstr ""
+
+#: app/views/Orders/details.php:7 app/views/Orders/editStatus.php:7
+msgid "Order Information"
+msgstr ""
+
+#: app/views/Orders/details.php:11 app/views/Orders/editStatus.php:11
+msgid "Order ID:"
+msgstr ""
+
+#: app/views/Orders/details.php:15 app/views/Orders/editStatus.php:15
+msgid "Order Date:"
+msgstr ""
+
+#: app/views/Orders/details.php:19 app/views/Orders/editStatus.php:19
+msgid "Status:"
+msgstr ""
+
+#: app/views/Orders/details.php:26 app/views/Orders/editStatus.php:43
+msgid "Profile Information"
+msgstr ""
+
+#: app/views/Orders/details.php:30 app/views/Orders/editStatus.php:47
+msgid "Name:"
+msgstr ""
+
+#: app/views/Orders/details.php:34 app/views/Orders/editStatus.php:51
+#: app/views/Profile/edit.php:21 app/views/Profile/index.php:28
+msgid "Email:"
+msgstr ""
+
+#: app/views/Orders/details.php:38 app/views/Orders/editStatus.php:55
+msgid "Phone:"
+msgstr ""
+
+#: app/views/Orders/details.php:44 app/views/Orders/editStatus.php:61
+#: app/views/Profile/addressEdit.php:9 app/views/Profile/index.php:39
+msgid "Address Information"
+msgstr ""
+
+#: app/views/Orders/details.php:48 app/views/Orders/editStatus.php:65
+#: app/views/Profile/addressEdit.php:12 app/views/Profile/index.php:48
+msgid "Street Address:"
+msgstr ""
+
+#: app/views/Orders/details.php:52 app/views/Orders/editStatus.php:69
+#: app/views/Profile/addressEdit.php:15 app/views/Profile/index.php:51
+msgid "Postal Code:"
+msgstr ""
+
+#: app/views/Orders/details.php:56 app/views/Orders/editStatus.php:73
+#: app/views/Profile/addressEdit.php:18 app/views/Profile/index.php:54
+msgid "City:"
+msgstr ""
+
+#: app/views/Orders/details.php:60 app/views/Orders/editStatus.php:77
+#: app/views/Profile/addressEdit.php:21 app/views/Profile/index.php:57
+msgid "Province:"
+msgstr ""
+
+#: app/views/Orders/details.php:64 app/views/Orders/editStatus.php:81
+#: app/views/Profile/addressEdit.php:24 app/views/Profile/index.php:60
+msgid "Country:"
+msgstr ""
+
+#: app/views/Orders/details.php:70
+msgid "Ordered Items"
+msgstr ""
+
+#: app/views/Orders/details.php:74
+#, fuzzy
+#| msgid "Product"
+msgid "Product Title"
+msgstr "Produit"
+
+#: app/views/Orders/details.php:75
+msgid "Quantity"
+msgstr ""
+
+#: app/views/Orders/details.php:76
+msgid "Unit Price"
+msgstr ""
+
+#: app/views/Orders/details.php:77
+#, fuzzy
+#| msgid "Total"
+msgid "Total Price"
+msgstr "Total"
+
+#: app/views/Orders/details.php:83
+msgid "No Image"
+msgstr ""
+
+#: app/views/Orders/editStatus.php:1
+msgid "Change Order Status"
+msgstr ""
+
+#: app/views/Orders/editStatus.php:33
+#, fuzzy
+#| msgid "Submit changes"
+msgid "Save changes"
+msgstr "Soumettre des modifications"
+
+#: app/views/Orders/orders.php:1 app/views/shared/header.php:32
+msgid "Orders"
+msgstr ""
+
+#: app/views/Orders/orders.php:8
+msgid "Order ID: "
+msgstr ""
+
+#: app/views/Orders/orders.php:9
+msgid "Status: "
+msgstr ""
+
+#: app/views/Orders/orders.php:11
+msgid "Change status"
+msgstr ""
+
+#: app/views/Orders/orders.php:15
+#, fuzzy
+#| msgid "Product"
+msgid "Products: "
+msgstr "Produit"
+
+#: app/views/Orders/orders.php:16
+msgid "Quantity: "
+msgstr ""
+
+#: app/views/Orders/orders.php:17
+msgid "Total Price: "
+msgstr ""
+
+#: app/views/Orders/orders.php:18
+msgid "Order Date: "
+msgstr ""
+
+#: app/views/Product/create.php:1
+#, fuzzy
+#| msgid "Product"
+msgid "Create Product"
+msgstr "Produit"
+
+#: app/views/Product/create.php:6
+msgid "Create a new product"
+msgstr ""
+
+#: app/views/Product/create.php:9 app/views/Product/edit.php:9
+msgid "Title:"
+msgstr ""
+
+#: app/views/Product/create.php:13 app/views/Product/details.php:14
+#: app/views/Product/edit.php:13
+msgid "Type:"
+msgstr ""
+
+#: app/views/Product/create.php:21 app/views/Product/details.php:15
+#: app/views/Product/edit.php:26
+msgid "Description:"
+msgstr ""
+
+#: app/views/Product/create.php:25 app/views/Product/edit.php:30
+msgid "Image:"
+msgstr ""
+
+#: app/views/Product/create.php:31 app/views/Product/edit.php:40
+msgid "Unit Price:"
+msgstr ""
+
+#: app/views/Product/create.php:35 app/views/Product/edit.php:44
+msgid "Discount Price:"
+msgstr ""
+
+#: app/views/Product/create.php:39 app/views/Product/details.php:21
+#: app/views/Product/edit.php:48
+msgid "Quantity:"
+msgstr ""
+
+#: app/views/Product/create.php:43
+msgid "Create"
+msgstr ""
+
+#: app/views/Product/details.php:1
+#, fuzzy
+#| msgid "Product"
+msgid "Product Details"
+msgstr "Produit"
+
+#: app/views/Product/details.php:11
+msgid "Product not found."
+msgstr ""
+
+#: app/views/Product/edit.php:6
+msgid "Edit a product"
+msgstr ""
+
+#: app/views/Product/edit.php:53
+msgid "Clear Image"
+msgstr ""
+
+#: app/views/Product/edit.php:54
+#, fuzzy
+#| msgid "Submit changes"
+msgid "Save Changes"
+msgstr "Soumettre des modifications"
+
+#: app/views/Profile/addressEdit.php:1
+msgid "Edit Address"
+msgstr ""
+
+#: app/views/Profile/addressEdit.php:10 app/views/Profile/edit.php:10
+msgid "save"
+msgstr ""
+
+#: app/views/Profile/edit.php:1
+msgid "Edit Profile"
+msgstr ""
+
+#: app/views/Profile/edit.php:9 app/views/Profile/index.php:10
+msgid "Personal Information"
+msgstr ""
+
+#: app/views/Profile/edit.php:12 app/views/Profile/index.php:19
+msgid "First Name:"
+msgstr ""
+
+#: app/views/Profile/edit.php:15 app/views/Profile/index.php:22
+msgid "Middle Name:"
+msgstr ""
+
+#: app/views/Profile/edit.php:18 app/views/Profile/index.php:25
+msgid "Last Name:"
+msgstr ""
+
+#: app/views/Profile/edit.php:24 app/views/Profile/index.php:31
+msgid "Phone Number:"
+msgstr ""
+
+#: app/views/Profile/index.php:1
+msgid "Profile Page"
+msgstr ""
+
+#: app/views/Profile/index.php:14 app/views/Profile/index.php:43
+msgid "edit"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:1 app/views/Profile/registerPers.php:1
+msgid "Create An Account"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:7
+msgid "Register Address"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:12
+msgid "Street Address"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:18
+msgid "Postal Code"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:24
+msgid "City"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:30
+msgid "Province"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:36
+msgid "Country"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:40 app/views/User/register.php:1
+#: app/views/User/register.php:6
+msgid "Register"
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:41 app/views/Profile/registerPers.php:41
+#: app/views/User/register.php:25
+msgid "Already have an account? "
+msgstr ""
+
+#: app/views/Profile/registerAddr.php:41 app/views/Profile/registerPers.php:41
+#: app/views/User/register.php:25
+msgid "Login."
+msgstr ""
+
+#: app/views/Profile/registerPers.php:7
+msgid "Register Profile"
+msgstr ""
+
+#: app/views/Profile/registerPers.php:12
+msgid "First Name"
+msgstr ""
+
+#: app/views/Profile/registerPers.php:18
+msgid "Middle Name"
+msgstr ""
+
+#: app/views/Profile/registerPers.php:24
+msgid "Last Name"
+msgstr ""
+
+#: app/views/Profile/registerPers.php:36
+msgid "Phone Number"
+msgstr ""
+
+#: app/views/Profile/registerPers.php:40 app/views/User/register.php:24
+msgid "Next"
 msgstr ""
 
 #: app/views/shared/header.php:2
@@ -144,6 +526,53 @@ msgstr ""
 msgid "Pathlor Tech"
 msgstr ""
 
+#: app/views/shared/header.php:24
+msgid "Log in"
+msgstr ""
+
+#: app/views/shared/header.php:26
+msgid "Log out"
+msgstr ""
+
+#: app/views/shared/header.php:37
+msgid "Profile"
+msgstr ""
+
+#: app/views/shared/header.php:47
+#, fuzzy
+#| msgid "Product"
+msgid "Post Product"
+msgstr "Produit"
+
 #: app/views/shared/header.php:53
 msgid "Search"
+msgstr ""
+
+#: app/views/User/index.php:1 app/views/User/index.php:6
+#: app/views/User/index.php:24
+msgid "Login"
+msgstr ""
+
+#: app/views/User/index.php:13 app/views/User/register.php:13
+msgid "Username"
+msgstr ""
+
+#: app/views/User/index.php:21 app/views/User/register.php:21
+msgid "Password"
+msgstr ""
+
+#: app/views/User/index.php:25
+msgid "Don't have an account? "
+msgstr ""
+
+#: app/views/User/index.php:25
+msgid "Register."
+msgstr ""
+
+#: app/views/User/twofasetup.php:3
+msgid "Current code:"
+msgstr ""
+
+#: app/views/User/twofasetup.php:4
+msgid "Verify code"
 msgstr ""

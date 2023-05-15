@@ -19,7 +19,6 @@ class Cart extends \app\core\Model{
 	public $description;
 	public $image;
 
-
 	public function getAllCartProducts($profile_id){
 		$SQL = 'SELECT od.order_details_id, p.title, p.image, p.unit_price, p.product_id, p.discount_price FROM orders o 
 				JOIN order_details od ON o.order_id = od.order_id JOIN product p ON od.product_id = p.product_id 
@@ -83,14 +82,21 @@ class Cart extends \app\core\Model{
 	}
 
 	public function checkout(){
-	    $currentDateTime = date('Y-m-d');
 	    $SQL = 'UPDATE orders SET status=:status, total_price=:total_price, order_date=:order_date WHERE order_id=:order_id';
 	    $STH = self::$connection->prepare($SQL);
 	    $STH->execute([
 	        'status' => $this->status,
 	        'total_price' => $this->total_price,
-	        'order_date' => $currentDateTime,
+	        'order_date' => \app\core\TimeHelper::ServerTimeInput(),
 	        'order_id' => $this->order_id,
 	    ]);
+	}
+
+	public function getProductPrice($product_id){
+		$SQL = 'SELECT unit_price FROM `product` WHERE product_id=:product_id';
+        $STH = self::$connection->prepare($SQL);
+        $STH->execute(['product_id'=>$product_id]);
+        $STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Cart');
+    	return $STH->fetch();
 	}
 }

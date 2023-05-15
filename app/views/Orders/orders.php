@@ -15,7 +15,7 @@
                     <h6 class="card-subtitle mb-2 text-muted"><?=_('Products: ')?><?= $order->products ?></h6>
                     <p class="card-text"><?=_('Quantity: ')?><?= $order->quantity ?></p>
                     <p class="card-text"><?=_('Total Price: ')?><?= $order->total_price ?></p>
-                    <p class="card-text"><?=_('Order Date: ')?><?= $order->order_date ?></p>
+                    <p class="card-text"><?=_('Order Date: ')?><?= \app\core\TimeHelper::DTOutBrowser($order->order_date) ?></p>
                 </div>
                 <div class="card-footer">
                     <a href="/Orders/details/<?= $order->order_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('View details')?></a>
@@ -26,5 +26,3 @@
 </div>
 
 <?php $this->view('shared/footer'); ?>
-
-
