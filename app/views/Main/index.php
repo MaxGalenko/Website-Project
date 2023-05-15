@@ -37,7 +37,7 @@
 					<p class="card-text">$<?= $product->unit_price ?></p>
 				<?php } ?>
 				<p class="card-text">Q: <?= $product->quantity ?></p>
-				<?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
+				<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
 					<a href="/Product/edit/<?= $product->product_id; ?>" id="e<?=$product->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Edit Product</a>
 					<a href="/Product/delete/<?= $product->product_id; ?>" id="d<?=$product->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;">Delete Product</a>
 				<?php } else { ?>

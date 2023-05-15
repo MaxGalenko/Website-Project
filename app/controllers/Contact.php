@@ -2,8 +2,6 @@
 namespace app\controllers;
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 class Contact extends \app\core\Controller{
 	public function index() {

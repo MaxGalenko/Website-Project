@@ -12,10 +12,10 @@ class Product extends \app\core\Model {
 	public $quantity;
 
 	//get all the products by product name
-	public function search($productName) {
-		$SQL = "SELECT * FROM product WHERE title LIKE '%$productName%' ORDER BY title DESC";
+	public function search($searchTerm) {
+		$SQL = "SELECT * FROM product WHERE title LIKE :searchTerm ORDER BY title DESC";
 		$STH = self::$connection->prepare($SQL);
-		$STH->execute();
+		$STH->execute(['searchTerm'=>"%$searchTerm%"]);
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');
 		return $STH->fetchAll();
 	}
@@ -58,7 +58,7 @@ class Product extends \app\core\Model {
 
 	//get all the products
 	public function getAll() {
-		$SQL = 'SELECT * FROM product';
+		$SQL = 'SELECT * FROM product ORDER BY product_id DESC';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Product');

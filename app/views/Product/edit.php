@@ -7,7 +7,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" class="form-control" value="<?=$data->title ?>" required style="color: #324A5F;">
+                    <input type="text" id="title" name="title" class="form-control" value="<?=$data->title ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="type">Type:</label>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea id="description" name="description" class="form-control" required style="color: #324A5F;"><?=$data->description ?></textarea>
+                    <textarea id="description" name="description" class="form-control" required><?=$data->description ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="image">Image:</label>
@@ -32,21 +32,21 @@
                     <?php if(isset($product) && $product->image != '') { ?>
                         <img src="./images/<?= $data->image ?>" width="100"><br>
                     <?php } ?>
-                    <input type="file" id="image" name="image" class="form-control-file" accept="image/*" value="<?=$data->image ?>" style="color: #324A5F;">
+                    <input type="file" id="image" name="image" class="form-control-file" accept="image/*" value="<?=$data->image ?>">
                     <br>
                     <img id='pic_preview' width='200px'>
                 </div>
                 <div class="form-group">
                     <label for="unit_price">Unit Price:</label>
-                    <input id="unit_price" name="unit_price" class="form-control" value="<?=$data->unit_price ?>" required style="color: #324A5F;">
+                    <input id="unit_price" name="unit_price" class="form-control" value="<?=$data->unit_price ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="discount_price">Discount Price:</label>
-                    <input id="discount_price" name="discount_price" class="form-control" value="<?=$data->discount_price ?>" required style="color: #324A5F;">
+                    <input id="discount_price" name="discount_price" class="form-control" value="<?=$data->discount_price ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" class="form-control" value="<?=$data->quantity ?>" required style="color: #324A5F;">
+                    <input type="number" id="quantity" name="quantity" class="form-control" value="<?=$data->quantity ?>" required>
                 </div>
                 <input type="hidden" name="clear_image" value="false">
                 <a href="/Main/index" class="btn btn-secondary">Back</a>
