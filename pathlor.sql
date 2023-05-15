@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 07:32 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 15, 2023 at 05:09 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,14 +38,18 @@ CREATE TABLE `address` (
   `city` varchar(50) NOT NULL,
   `province` varchar(50) NOT NULL,
   `country` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`address_id`, `profile_id`, `street_address`, `postal_code`, `city`, `province`, `country`) VALUES
-(1, 5, '4750 Avenue Saint-Kevin', 'H4L 3X9', 'Montreal', 'Qc', 'Canada');
+(1, 5, '4750 Avenue Saint-Kevin', 'H4L 3X9', 'Montreal', 'Qc', 'Canada'),
+(2, 7, '8830 Rue jeanne Mance', 'H2N1X4', 'Montreal', 'Quebec', 'Canada'),
+(3, 8, '8022 Avenue Champagneur', 'h3k2k5', 'Montreal', 'Quebec', 'Canada'),
+(4, 9, 'Disney Land St.', 'H7T 1K2', 'ForeEverland City', 'Province of Fantasy', 'Country of imaginations'),
+(5, 10, '1234 Avenue Van horne', 'H3NX5', 'Montreal', 'Quebec', 'Canada');
 
 -- --------------------------------------------------------
 
@@ -58,7 +62,7 @@ CREATE TABLE `info` (
   `info_id` int(11) NOT NULL,
   `about_text` text NOT NULL,
   `contact_text` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `info`
@@ -81,16 +85,19 @@ CREATE TABLE `orders` (
   `status` varchar(20) NOT NULL,
   `total_price` decimal(6,2) NOT NULL,
   `order_date` date DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `profile_id`, `address_id`, `status`, `total_price`, `order_date`) VALUES
-(1, 5, 1, 'In progress', '4199.77', '2023-05-10'),
+(1, 5, 1, 'Completed', '4199.77', '2023-05-10'),
 (9, 5, 1, 'In progress', '576.14', '2023-05-10'),
-(10, 5, 1, 'In cart', '0.00', '2023-05-10');
+(10, 5, 1, 'In cart', '0.00', '2023-05-10'),
+(11, 7, 2, 'Completed', '3107.28', '2023-05-15'),
+(12, 9, 4, 'In progress', '3107.28', '2023-05-15'),
+(13, 8, 3, 'In progress', '1438.64', '2023-05-15');
 
 -- --------------------------------------------------------
 
@@ -105,7 +112,7 @@ CREATE TABLE `order_details` (
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `unit_price` decimal(6,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `order_details`
@@ -115,13 +122,16 @@ INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `quan
 (1, 1, 12, 1, '1250.99'),
 (2, 1, 11, 1, '200.99'),
 (3, 2, 10, 1, '1250.99'),
-(4, 1, 9, 1, '0.00'),
-(7, 4, 8, 1, '0.00'),
-(9, 7, 8, 1, '0.00'),
-(11, 8, 10, 1, '0.00'),
-(12, 8, 10, 1, '0.00'),
-(13, 9, 10, 1, '0.00'),
-(14, 10, 9, 1, '0.00');
+(4, 1, 9, 1, '199.99'),
+(11, 8, 10, 1, '500.99'),
+(12, 8, 10, 1, '500.99'),
+(13, 9, 10, 1, '500.99'),
+(14, 10, 9, 1, '199.99'),
+(15, 11, 11, 1, '2200.99'),
+(16, 11, 10, 1, '500.99'),
+(17, 12, 11, 1, '2200.99'),
+(18, 12, 10, 1, '500.99'),
+(19, 13, 13, 1, '1250.99');
 
 -- --------------------------------------------------------
 
@@ -138,7 +148,7 @@ CREATE TABLE `payment` (
   `status` varchar(20) NOT NULL,
   `method` varchar(20) NOT NULL,
   `details` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -156,7 +166,7 @@ CREATE TABLE `product` (
   `unit_price` decimal(6,2) NOT NULL,
   `discount_price` decimal(6,2) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
@@ -183,14 +193,18 @@ CREATE TABLE `profile` (
   `last_name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone_number` varchar(18) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`profile_id`, `first_name`, `middle_name`, `last_name`, `email`, `phone_number`) VALUES
-(5, 'Maxym', '', 'Galenko', 'maxym@gmail.com', '(514) 294-2667');
+(5, 'Maxym', '', 'Galenko', 'maxym@gmail.com', '(514) 294-2667'),
+(7, 'Ali', '', 'Raza', 'Aliraza@gmail.com', '4382258570'),
+(8, 'Maxym', 'Ma', 'Galenko', 'Maxym@hotmail.com', '1234556789'),
+(9, 'Mert', '', 'banana', 'Mert@gmail.com', '1234567891'),
+(10, 'Test', '', 'Test family', 'random@gmail.com', '4383348670');
 
 -- --------------------------------------------------------
 
@@ -204,7 +218,7 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `password_hash` varchar(72) NOT NULL,
   `role` varchar(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -212,7 +226,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`, `role`) VALUES
 (4, 'A', '$2y$10$o36BXwd.ArZYo.P.Js9dIeF3PArTIHpDXvYnohn5C/QB8tx3nCKM6', 'admin'),
-(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer');
+(5, 'C', '$2y$10$W9oy1hsP42vjZi1AO67KmuaXMAmTNToFPRXyZBx5/4QstYHsEs0Lm', 'customer'),
+(7, 'Ali', '$2y$10$VWzOi2k6InvJhU87dO5nbe5FTBHYal0V9ctFxfkmSMvJbD5QEslze', 'customer'),
+(8, 'Maxym', '$2y$10$AWECUi6yNB5YKyiYuSRNeOKaE1j3bgCYVRhXtYVQgx4Yhr5DuYZj6', 'customer'),
+(9, 'Mert', '$2y$10$rQUIrqptUSBOeix0WnrD.OrOvzRY9bxfzlEsC4BV5j417InakwQoa', 'customer'),
+(10, 'Test', '$2y$10$akxMDQGdznTjzfoztXoQ.uCS29mvGfS7iroPLojOr7PSkgbj5a72W', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -280,7 +298,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `info`
@@ -292,13 +310,13 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -310,19 +328,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
