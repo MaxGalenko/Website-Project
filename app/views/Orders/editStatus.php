@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('Change Order Status')?>"); ?>
+<?php $this->view('shared/header', _('Change Order Status')); ?>
 
 <div class="container">
     <h1>Order Details</h1>

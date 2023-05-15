@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('Catalog')?>"); ?>
+<?php $this->view('shared/header', _('Catalog')); ?>
 
 <script src="/json/filter.js"></script>
 

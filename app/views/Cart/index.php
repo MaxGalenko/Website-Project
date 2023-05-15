@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('Cart')?>"); ?>
+<?php $this->view('shared/header', _('Cart')); ?>
 
 <link rel="stylesheet" type="text/css" href="/css/Cart/style.css">
 

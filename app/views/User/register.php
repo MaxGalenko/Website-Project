@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('Register')?>"); ?>
+<?php $this->view('shared/header', _('Register')); ?>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
     <div class="card" style="width: 30rem;">

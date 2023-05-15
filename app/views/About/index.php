@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('About Us')?>"); ?>
+<?php $this->view('shared/header', _('About Us')); ?>
 
 <h1 class='text-center' id='about'><?= _('About Pathlor Tech') ?></h1>
 

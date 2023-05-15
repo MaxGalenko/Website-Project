@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', "<?_('Edit Product')?>"); ?>
+<?php $this->view('shared/header', _('Edit Product')); ?>
 
 <div class="container">
     <div class="card">
