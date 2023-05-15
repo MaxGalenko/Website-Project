@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Orders'); ?>
+<?php $this->view('shared/header', "<?_('Orders')?>"); ?>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <?php foreach ($data as $order): ?>

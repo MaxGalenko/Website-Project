@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Profile Page'); ?>
+<?php $this->view('shared/header', "<?_('Edit Profile')?>"); ?>
 
 <link rel="stylesheet" href="/css/Profile/style.css">
 

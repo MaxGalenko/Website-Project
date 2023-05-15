@@ -1,4 +1,4 @@
-<?php $this->view('shared/header','About us'); ?>
+<?php $this->view('shared/header', "<?_('About Us')?>"); ?>
 
 <h1 class='text-center' id='about'><?= _('About Pathlor Tech') ?></h1>
 
@@ -10,7 +10,7 @@
 
 <div id='edit'>
 	<?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
-		<a href='/About/edit'><i class='btn btn-default' style='background-color: #324A5F; color: #FFFFFF; '><?=_('Edit')?></i></a>
+		<a href='/About/edit' class='btn btn-default' style='background-color: #324A5F; color: #FFFFFF; '><?=_('Edit')?></a>
 	<?php } ?>
 </div>
 

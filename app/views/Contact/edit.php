@@ -1,4 +1,4 @@
-<?php $this->view('shared/header','Contact us'); ?>
+<?php $this->view('shared/header', "<?_('Contact Us')?>"); ?>
 
 <section class="mb-4">
     <h2 class="h1-responsive font-weight-bold text-center my-3"><?=_('Contact us')?></h2>

@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Create an Account'); ?>
+<?php $this->view('shared/header', "<?_('Create An Account')?>"); ?>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
     <div class="card" style="width: 30rem;">

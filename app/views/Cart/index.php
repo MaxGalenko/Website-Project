@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Cart Page'); ?>
+<?php $this->view('shared/header', "<?_('Cart')?>"); ?>
 
 <link rel="stylesheet" type="text/css" href="/css/Cart/style.css">
 
@@ -24,13 +24,22 @@ $total = 0;
 							<img src="/images/<?= $product->image ?>">
 							<div>
 								<p><?= $product->title ?></p>
-								<small>Price: $<?= $product->unit_price ?></small>
+								<?php if($product->discount_price != 0) { ?>
+									<small><?=_('Price: ')?>$<del><?= $product->unit_price ?></del> $<?= $product->discount_price ?></small>
+								<?php } else { ?>
+									<small><?=_('Price: ')?>$<?= $product->unit_price ?></small>
+								<?php } ?>
 								<br>
 								<a href="/Cart/removeFromCart/<?= $product->order_details_id ?>"><?=_('Remove')?></a>
 							</div>
 						</div>
 					</td>
-					<td>$<?= $product->unit_price ?></td>
+					<?php if($product->discount_price != 0) { ?>
+						<td>$<?= $product->discount_price ?></td>
+					<?php } else { ?>
+						<td>$<?= $product->unit_price ?></td>
+					<?php } ?>
+					
 				</tr>
 			<?php } ?>
 		</table>
@@ -59,9 +68,9 @@ $total = 0;
 			</table>
 		</div>
 		<div class="checkout">
-			<button class="btn btn-default" type="submit" name="action" style="background-color: #324A5F; color: #FFFFFF; width: 100%; ">Checkout</button>
+			<button class="btn btn-default" type="submit" name="action" style="background-color: #324A5F; color: #FFFFFF; width: 100%; "><?=_('Checkout')?></button>
 			<div class="alert alert-warning" role="alert">
-				Note: You will need to contact us to discuss the payment details before receiveing the product
+				<?=_('Note: You will need to contact us to discuss the payment details before receiveing the product')?>
 			</div>
 		</div>
 	</div>

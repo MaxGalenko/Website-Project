@@ -1,4 +1,4 @@
-<?php $this->view('shared/header', 'Create product'); ?>
+<?php $this->view('shared/header', "<?_('Login')?>"); ?>
 
 <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
     <div class="card" style="width: 30rem;">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3" name="action" value='Login' style="background-color: #324A5F;">Login</button>
-                <div style="color: #324A5F;">Don't already have an account? <a href="/User/register" style="color: #324A5F; text-decoration: underline;" name="register">Register.</a></div>
+                <div style="color: #324A5F;">Don't have an account? <a href="/User/register" style="color: #324A5F; text-decoration: underline;" name="register">Register.</a></div>
             </form>
 
             <?php if(isset($_GET['error'])): ?>

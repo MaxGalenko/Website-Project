@@ -21,30 +21,30 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <?php if(!isset($_SESSION['user_id'])) {?>
-                  <a class="nav-link" href="/User/index"><i style="font-size: 2rem; color: #FFFFFF; " name="log_in" class='bi-door-closed' title="Log in"></i></a>
+                  <a class="nav-link" href="/User/index"><i style="font-size: 2rem; color: #FFFFFF; " name="log_in" class='bi-door-closed' title="<?=_('Log in')?>"></i></a>
                 <?php } else { ?>
-                  <a class="nav-link" href="/User/logout"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-open' title='Log out'></i></a>
+                  <a class="nav-link" href="/User/logout"><i style="font-size: 2rem; color: #FFFFFF; " class='bi-door-open' title="<?=_('Log out')?>"></i></a>
                 <?php }
                 ?>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['user_id'])) {?>
-                  <a class="nav-link" href="/Orders/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-file-earmark' title="Orders"></i></a>
+                  <a class="nav-link" href="/Orders/index"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-file-earmark' title="<?=_('Orders')?>"></i></a>
                 <?php } ?>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer') {?>
-                  <a class="nav-link" href="/Profile/index"><i style="font-size: 2.2rem; color: #FFFFFF; " class='bi bi-person-lines-fill' title="Profile" id="profileStuff"></i></a>
+                  <a class="nav-link" href="/Profile/index"><i style="font-size: 2.2rem; color: #FFFFFF; " class='bi bi-person-lines-fill' title="<?=_('Profile')?>" id="profileStuff"></i></a>
                 <?php } ?>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'customer') {?>
-                  <a class="nav-link" href="/Cart/index"><i style="font-size: 2.1rem; color: #FFFFFF; " class='bi bi-cart3' title="Cart"></i></a>
+                  <a class="nav-link" href="/Cart/index"><i style="font-size: 2.1rem; color: #FFFFFF; " class='bi bi-cart3' title="<?=_('Cart')?>"></i></a>
                 <?php } ?>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {?>
-                  <a class="nav-link" href="/Product/create"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-plus-square' title="Post Product"></i></a>
+                  <a class="nav-link" href="/Product/create"><i style="font-size: 2rem; color: #FFFFFF; " class='bi bi-plus-square' title="<?=_('Post Product')?>"></i></a>
                 <?php } ?>
         </li>
       </ul>
@@ -52,6 +52,7 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_term">
         <button class="btn btn-outline-light" type="submit" name="search"><?= _('Search') ?></button>
       </form>
-      <button class="btn btn-outline-light" type="submit">FR</button>
+      <a href="?lang=fr_CA" class="btn btn-outline-light">FR</a>
+      <a href="?lang=en" class="btn btn-outline-light">EN</a>
     </div>
   </nav>
