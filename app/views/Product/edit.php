@@ -38,11 +38,11 @@
                 </div>
                 <div class="form-group">
                     <label for="unit_price">Unit Price:</label>
-                    <input id="unit_price" name="unit_price" class="form-control" value="<?=$data->unit_price ?>" required>
+                    <input id="unit_price" name="unit_price" class="form-control" value="<?=$data->unit_price ?>" required pattern="^(([1-9]\d{0,2})|([1-9]\d*))(\.\d{1,2})?$">
                 </div>
                 <div class="form-group">
                     <label for="discount_price">Discount Price:</label>
-                    <input id="discount_price" name="discount_price" class="form-control" value="<?=$data->discount_price ?>" required>
+                    <input id="discount_price" name="discount_price" class="form-control" value="<?=$data->discount_price ?>" required pattern="^(0|([1-9]\d{0,2})|([1-9]\d*))(\.\d{1,2})?$">
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
