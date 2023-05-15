@@ -6,22 +6,22 @@
 <div class="contentContainerC">
     <form name='action' action="/Profile/editAddressInfo" method="post">
         
-        <h1>Address Information</h1>
-        <button type="submit" name="action">save</button> 
+        <h1><?=_('Address Information')?></h1>
+        <button type="submit" name="action"><?=_('save')?></button> 
          <div>
-            <h1>Street Address: </h1>
+            <h1><?=_('Street Address:')?></h1>
             <input type="text" name="street" value="<?= $data->street_address ?>">
 
-            <h1>Postal Code:</h1>
+            <h1><?=_('Postal Code:')?></h1>
             <input type="text" name="postal" value="<?= $data->postal_code ?>">
 
-            <h1>City:</h1>
+            <h1><?=_('City:')?></h1>
             <input type="text" name="city" value="<?= $data->city ?>">
 
-            <h1>Province:</h1>
+            <h1><?=_('Province:')?></h1>
             <input type="text" name="province" value="<?= $data->province ?>">
 
-            <h1>Country:</h1>
+            <h1><?=_('Country:')?></h1>
             <input type="text" name="country" value="<?= $data->country ?>">
         </div>  
     </form> 
