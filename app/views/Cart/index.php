@@ -70,7 +70,7 @@ $total = 0;
 		<div class="checkout">
 			<button class="btn btn-default" type="submit" name="action" style="background-color: #324A5F; color: #FFFFFF; width: 100%; "><?=_('Checkout')?></button>
 			<div class="alert alert-warning" role="alert">
-				<?=_('Note: You will need to contact us to discuss the payment details before receiveing the product')?>
+				<?=_('Note: You will need to contact us to discuss the payment details before receiving the product')?>
 			</div>
 		</div>
 	</div>

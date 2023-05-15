@@ -1,7 +1,7 @@
 <?php $this->view('shared/header', _('Contact Us')); ?>
 
 <section class="mb-4">
-    <h2 class="h1-responsive font-weight-bold text-center my-3"><?=_('Contact us')?></h2>
+    <h2 class="h1-responsive font-weight-bold text-center my-3"><?=_('Contact Us')?></h2>
     <h3 class="text-center my-3"><?= $data->contact_text ?>
         <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
             <a href='/Contact/edit'><i class='btn btn-default' style='background-color: #324A5F; color: #FFFFFF; '><?=_('Edit')?></i></a>

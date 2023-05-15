@@ -45,7 +45,7 @@
 				<?php } else { ?>
 					<a href="/Cart/addToCart/<?= $product->product_id ?>" id="p<?=$product->product_id;?>" class="btn btn-defualt" style="background-color: #324A5F; color: #FFFFFF; "><?=_('Add to Cart')?></a>
 				<?php } ?>
-				<a href="/Product/details/<?= $product->product_id; ?>" id="v<?=$product->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('View details')?></a>
+				<a href="/Product/details/<?= $product->product_id; ?>" id="v<?=$product->product_id;?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('View Details')?></a>
 			</div>
 		</div>
 	</main>

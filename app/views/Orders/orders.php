@@ -8,7 +8,7 @@
                     <h5 class="card-title"><?=_('Order ID: ')?><?= $order->order_id ?></h5>
                     <p class="card-text"><?=_('Status: ')?><?= $order->status ?></p>
                     <?php if($_SESSION['role'] == 'admin'): ?>
-                        <a href="/Orders/editStatus/<?= $order->order_id ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('Change status')?></a>
+                        <a href="/Orders/editStatus/<?= $order->order_id ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('Change Status')?></a>
                     <?php endif; ?>
                 </div>
                 <div class="card-body">
@@ -18,7 +18,7 @@
                     <p class="card-text"><?=_('Order Date: ')?><?= \app\core\TimeHelper::DTOutBrowser($order->order_date) ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="/Orders/details/<?= $order->order_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('View details')?></a>
+                    <a href="/Orders/details/<?= $order->order_id; ?>" class="btn btn-default" style="background-color: #324A5F; color: #FFFFFF;"><?=_('View Details')?></a>
                 </div>
             </div>
         </div>
