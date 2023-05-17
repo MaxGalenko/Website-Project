@@ -75,6 +75,9 @@ class User extends \app\core\Controller{
 	// } 
 
 	#[\app\filters\Login] public function setup2fa(){     
+		$isQRAvailable, $insertQrCode = new \app\models\User(); //Testing this thing to get the result
+		$isQRAvailable = $isQRAvailable->getUserQrCode($_SESSION['user_id']);
+
 		if(isset($_POST['action'])){      
 			$currentcode = $_POST['currentCode'];         
 
@@ -83,15 +86,21 @@ class User extends \app\core\Controller{
 				$user->user_id = $_SESSION['user_id'];          
 				$user->secret_key = $_SESSION['secretkey'];               
 				header('location:/Main/index');         
-			}else{           
+			}
+			else {           
 				header('location:/User/setup2fa?error=token not verified!');
 				//reload         
 			}     
-		}else{         
+		}
+		elseif ($isQRAvailable->secret_key == NULL) {
 			$secretkey = \app\core\TokenAuth6238::generateRandomClue();         
 			$_SESSION['secretkey'] = $secretkey;         
-			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'Awesome.com', $secretkey, 'Awesome App');         
-			$this->view('User/twofasetup', $url);     
+			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'PathlorTech.com', $secretkey, 'Pathlor Store');  
+			     
+			$this->view('User/twofasetup', [$url, $isQRAvailable]);     
+		}
+		else{        
+			$this->view('User/twofasetup', [NULL, $isQRAvailable]); 
 		} 
 	} 
 }

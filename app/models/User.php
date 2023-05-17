@@ -17,12 +17,23 @@ class User extends \app\core\Model{
 	}
 
 	public function insert(){
-	    $SQL = 'INSERT INTO User(username, password_hash, role) VALUES (:username, :password_hash, :role)';
+	    $SQL = 'INSERT INTO User(username, password_hash, role, secret_key) VALUES (:username, :password_hash, :role, :secret_key)';
 	    $STH = self::$connection->prepare($SQL);
 
 	    $STH->execute(['username'=>$this->username,
 	                    'password_hash'=>$this->password_hash,
-	                    'role' => 'customer']);
+	                    'role' => 'customer',
+						'secret_key' => NULL
+					]);
 	    return self::$connection->lastInsertId();// returns the value of the new PK
+	}
+
+	public function getUserQrCode($userID){
+		$SQL = 'SELECT * FROM User WHERE user_id = :user_id';
+		$STH = self::$connection->prepare($SQL);
+
+		$STH->execute(['user_id'=>$userID]);
+		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\User');
+		return $STH->fetch();
 	}
 }
