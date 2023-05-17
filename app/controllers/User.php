@@ -80,11 +80,12 @@ class User extends \app\core\Controller{
 		if(isset($_POST['action'])){      
 			$currentcode = $_POST['currentCode'];         
 
-			if(\app\core\TokenAuth6238::verify($_SESSION['secretkey'],$currentcode) || $currentcode == 1234567890){           
+			if(\app\core\TokenAuth6238::verify($_SESSION['secretkey'], $currentcode) || $currentcode == 1234567890){           
 				$user = new \app\models\User();             
 				$user->user_id = $_SESSION['user_id'];          
-				$user->secret_key = $_SESSION['secretkey'];               
-				header('location:/Main/index');         
+				$user->secret_key = $_SESSION['secretkey'];     
+				$qrCode->updateUserQrCode($_SESSION['user_id'], $_SESSION['secretkey']);        
+				header('location:/Main/index');     
 			}
 			else {           
 				header('location:/User/setup2fa?error=token not verified!');
@@ -96,10 +97,11 @@ class User extends \app\core\Controller{
 			$_SESSION['secretkey'] = $secretkey;         
 			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'PathlorTech.com', $secretkey, 'Pathlor Store');   
 			$this->view('User/twofasetup', [$url, $qrCode->getUserQrCode($_SESSION['user_id'])]);   
-			$qrCode->updateUserQrCode($_SESSION['user_id'], $secretkey);  
 		}
 		else{        
+			  
 			$this->view('User/twofasetup', [NULL,  $qrCode->getUserQrCode($_SESSION['user_id'])]); 
+			$_SESSION['secretkey'] = $qrCode->getUserQrCode($_SESSION['user_id'])->secret_key;  
 		} 
 	} 
 }
