@@ -36,4 +36,13 @@ class User extends \app\core\Model{
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\User');
 		return $STH->fetch();
 	}
+
+	public function updateUserQrCode($userID, $secretKey){
+		$SQL = 'UPDATE user SET secret_key=:secret_key WHERE user_id=:user_id';
+		$STH = self::$connection->prepare($SQL);
+		$STH->execute([
+			'secret_key' => $secretKey,
+			'user_id' => $userID,
+		]);
+	}
 }

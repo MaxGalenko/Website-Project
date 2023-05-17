@@ -75,8 +75,7 @@ class User extends \app\core\Controller{
 	// } 
 
 	#[\app\filters\Login] public function setup2fa(){     
-		$isQRAvailable, $insertQrCode = new \app\models\User(); //Testing this thing to get the result
-		$isQRAvailable = $isQRAvailable->getUserQrCode($_SESSION['user_id']);
+		$qrCode = new \app\models\User(); //Testing this thing to get the result
 
 		if(isset($_POST['action'])){      
 			$currentcode = $_POST['currentCode'];         
@@ -92,15 +91,15 @@ class User extends \app\core\Controller{
 				//reload         
 			}     
 		}
-		elseif ($isQRAvailable->secret_key == NULL) {
+		elseif ($qrCode->getUserQrCode($_SESSION['user_id'])->secret_key == NULL) {
 			$secretkey = \app\core\TokenAuth6238::generateRandomClue();         
 			$_SESSION['secretkey'] = $secretkey;         
-			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'PathlorTech.com', $secretkey, 'Pathlor Store');  
-			     
-			$this->view('User/twofasetup', [$url, $isQRAvailable]);     
+			$url = \app\core\TokenAuth6238::getLocalCodeUrl($_SESSION['user_id'], 'PathlorTech.com', $secretkey, 'Pathlor Store');   
+			$this->view('User/twofasetup', [$url, $qrCode->getUserQrCode($_SESSION['user_id'])]);   
+			$qrCode->updateUserQrCode($_SESSION['user_id'], $secretkey);  
 		}
 		else{        
-			$this->view('User/twofasetup', [NULL, $isQRAvailable]); 
+			$this->view('User/twofasetup', [NULL,  $qrCode->getUserQrCode($_SESSION['user_id'])]); 
 		} 
 	} 
 }
