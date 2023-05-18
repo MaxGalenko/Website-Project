@@ -50,7 +50,6 @@ class TimeHelper{
 	public static function ServerTimeInput(){
 		//create a datetime object in the local timezone
 		try{
-
 			$tz = date_default_timezone_get();
 			$datetime = new DateTime('', new DateTimeZone($tz));
 			//change the timezone to UTC
